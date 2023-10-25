@@ -13,9 +13,16 @@ namespace Elias.Web.Controllers
             _logger = logger;
         }
 
+        
         public IActionResult Index()
         {
             return View();
+        }
+
+        [Route("/DarkIndex")]
+        public IActionResult DarkIndex()
+        {
+            return View("DarkIndex");
         }
 
         public IActionResult Privacy()
