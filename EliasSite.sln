@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{FC493935-20FA-4519-BF40-59B6476885B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elias.Data", "Elias.Data\Elias.Data.csproj", "{3643DF23-CC71-4E44-96AE-842F03C7C331}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elias.Data", "Elias.Data\Elias.Data.csproj", "{3643DF23-CC71-4E44-96AE-842F03C7C331}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elias.Web", "Elias.Web\Elias.Web.csproj", "{180F8C0C-911B-4481-9F33-0502DCA79291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elias.Web", "Elias.Web\Elias.Web.csproj", "{180F8C0C-911B-4481-9F33-0502DCA79291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
 using Elias.Data.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,16 @@ var services = builder.Services;
 // Add services to the container.
 services.AddControllersWithViews();
 services.AddMvc();
+
+#region Authentication
+services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
+#endregion
+
 services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString")));
 #endregion
 
@@ -27,7 +38,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
