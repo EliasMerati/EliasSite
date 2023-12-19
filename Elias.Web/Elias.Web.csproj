@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Elias.Admin\Elias.Admin.csproj" />
     <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
   </ItemGroup>
 
