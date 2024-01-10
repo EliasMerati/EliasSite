@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\User\" />
+  </ItemGroup>
+
 </Project>

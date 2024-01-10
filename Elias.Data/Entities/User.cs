@@ -1,9 +1,9 @@
 ﻿namespace Elias.Data.Entities
 {
+#nullable disable
     public class User
     {
         public int UserId { get; set; }
-        public int RoleId { get; set; }
         public string Name { get; set; }
         public string Familly { get; set; }
         public string UserName { get; set; }
@@ -23,9 +23,5 @@
         public string PhoneNumber { get; set; }
         public string Skype { get; set; }
 
-
-        #region Relations
-        public Role Role { get; set; }
-        #endregion
     }
 }
