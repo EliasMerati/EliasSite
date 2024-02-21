@@ -33,7 +33,7 @@ namespace Elias.Data.Context
                    MainDescription="",
                    Resumeh="Null",
                    MainSkill= ".Net Developer",
-                   Skill= "C# , Asp .Net MVC , Asp .Net RazorPages , Asp .Net Core , Blazor , MAUI , Html , Css , Bootstrap , Sass",
+                   Skill= "C# , Asp .Net MVC , Asp .Net RazorPages , Asp .Net CoreMVC , Blazor",
                    GitHub= "EliasMerati",
                    LinkedIn= "elias-merati",
                    PhoneNumber="09223610626",
