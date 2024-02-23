@@ -1,9 +1,10 @@
-﻿namespace Elias.Data.Entities
+﻿using Elias.Data.Common;
+
+namespace Elias.Data.Entities
 {
 #nullable disable
-    public class User
+    public class User : BaseEntity<int>
     {
-        public int UserId { get; set; }
         public string Name { get; set; }
         public string Familly { get; set; }
         public string UserName { get; set; }

@@ -1,3 +1,4 @@
+using Elias.Admin.Configuration;
 using Elias.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 #region Services
 var services = builder.Services;
 services.AddRazorPages();
-
+services.Configuration();
 services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString")));
 #endregion
 // Add services to the container.

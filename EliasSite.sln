@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{959280
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C94DA79E-251F-43B9-BB9A-8A84CFD8314E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elias.Common", "EliasSite.Common\Elias.Common.csproj", "{9AD517D9-14D1-438F-BC7D-06256035F304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elias.Common", "EliasSite.Common\Elias.Common.csproj", "{9AD517D9-14D1-438F-BC7D-06256035F304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elias.Application", "EliasSite.Application\Elias.Application.csproj", "{5B91430D-EFF2-422A-A89B-D6B217A7A4FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elias.Application", "EliasSite.Application\Elias.Application.csproj", "{5B91430D-EFF2-422A-A89B-D6B217A7A4FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

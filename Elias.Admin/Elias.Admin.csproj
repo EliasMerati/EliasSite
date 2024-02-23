@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
+    <ProjectReference Include="..\EliasSite.Application\Elias.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
