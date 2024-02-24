@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
+    <ProjectReference Include="..\EliasSite.Common\Elias.Common.csproj" />
+  </ItemGroup>
+
 </Project>
