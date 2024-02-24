@@ -25,7 +25,7 @@ namespace Elias.Application.Services
                 Address = user.Address,
                 City = user.City,
                 CreateDate = DateTime.Now.ToShamsi(),
-                Email = user.Email,
+                Email = user.Email.ToLower().Trim(),
                 Familly = user.Familly,
                 GitHub = user.GitHub,
                 IsActive = user.IsActive,

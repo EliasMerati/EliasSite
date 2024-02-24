@@ -28,11 +28,6 @@ namespace Elias.Data.DTOs.UserDto
         [MaxLength(150)]
         public string Password { get; set; }
 
-        [Display(Name = "عکس")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
-        [MaxLength(150)]
-        public string UserImage { get; set; }
-
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         [MaxLength(250)]
@@ -65,11 +60,6 @@ namespace Elias.Data.DTOs.UserDto
         [Display(Name = "توضیحات")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string MainDescription { get; set; }
-
-        [Display(Name = "رزومه")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
-        [MaxLength(150)]
-        public string Resumeh { get; set; }
 
         [Display(Name = "مهارت اصلی")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
@@ -131,11 +121,6 @@ namespace Elias.Data.DTOs.UserDto
         [MaxLength(150)]
         public string Password { get; set; }
 
-        [Display(Name = "عکس")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
-        [MaxLength(150)]
-        public string UserImage { get; set; }
-
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         [MaxLength(250)]
@@ -168,11 +153,6 @@ namespace Elias.Data.DTOs.UserDto
         [Display(Name = "توضیحات")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string MainDescription { get; set; }
-
-        [Display(Name = "رزومه")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
-        [MaxLength(150)]
-        public string Resumeh { get; set; }
 
         [Display(Name = "مهارت اصلی")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]

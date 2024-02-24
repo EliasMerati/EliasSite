@@ -29,8 +29,8 @@ namespace Elias.Admin.Pages.User
                 return Page();
             }
             #endregion
-
-            return Page();
+            await _userService.CreateUserAsync(user);
+            return Redirect("Index");
         }
     }
 }
