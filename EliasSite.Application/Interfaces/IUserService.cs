@@ -11,5 +11,7 @@ namespace Elias.Application.Interfaces
         Task<UpdateUserDto> FindUserForUpdateAsync(int Id);
         Task<UpdateUserResult> UpdateUser(UpdateUserDto user);
         Task<User> FindUserAsync(int Id);
+        Task<User> GetByEmail(string email);
+        Task<LoginResult> Login(LoginDto login);
     }
 }

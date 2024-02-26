@@ -15,26 +15,26 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-        <div class="box">
-            <form action="#" method="post">
-                <label for="username">Username</label><br>
-                <input type="text" name="uname" id="uname" placeholder="Enter Username" class="input-box">
-                <br><br>
-                <label for="username">Password</label><br>
-                <input type="password" name="uname" id="uname" placeholder="Enter Password" class="input-box"><br>
-                <div class="forget">
-                    <label class="checkbox-label">
-                        <input type="checkbox">
-                        <span class="checkbox-custom "></span>
-                        <span class="label-text">Remember me</span>
-                    </label>
-                    <span class="fg">
-                        <a href="#"> Forget password?</a>
-                    </span>
-                </div>
-                <button type="submit" class="btn">Sign In</button>
-            </form>
-        </div>
+    <div class="box">
+        <form action="#" method="post">
+            <label asp-for="Login.Email">Email</label><br>
+            <input type="text" asp-for="Login.Email" id="uname" placeholder="Enter Email" class="input-box">
+            <br><br>
+            <label asp-for="Login.Password">Password</label><br>
+            <input type="password" asp-for="Login.Password" id="uname" placeholder="Enter Password" class="input-box"><br>
+            <div class="forget">
+                <label class="checkbox-label">
+                    <input asp-for="Login.RememberMe" type="checkbox">
+                    <span class="checkbox-custom "></span>
+                    <span class="label-text">Remember me</span>
+                </label>
+                <span class="fg">
+                    <a href="#"> Forget password?</a>
+                </span>
+            </div>
+            <button type="submit" class="btn">ورود به پنل ادمین</button>
+        </form>
+    </div>
 
-    </body>
+</body>
 </html>

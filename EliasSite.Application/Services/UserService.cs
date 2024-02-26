@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Elias.Application.Services
 {
+#nullable disable
     public class UserService : IUserService
     {
 
@@ -91,6 +92,29 @@ namespace Elias.Application.Services
 
             };
 
+        }
+
+        public async Task<User> GetByEmail(string email)
+        {
+            return 
+                await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<LoginResult> Login(LoginDto login)
+        {
+            var email = login.Email.Trim().ToLower();
+            var user = await GetByEmail(email); 
+            if (user is null) 
+            { 
+                return  LoginResult.UserNotFound; 
+            }
+            string hashPass = login.Password;
+            if ( user.Password != hashPass)
+            {
+                return LoginResult.UserNotFound;
+            }
+
+            return  LoginResult.Success;
         }
 
         public async Task<UpdateUserResult> UpdateUser(UpdateUserDto user)
