@@ -1,4 +1,5 @@
-﻿using Elias.Data.Entities;
+﻿using Elias.Common;
+using Elias.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Elias.Data.Context
@@ -18,9 +19,9 @@ namespace Elias.Data.Context
             modelBuilder.Entity<User>()
                .HasData(new
                {
-                   UserId = 1,
+                   Id = 1,
                    UserName = "EliasAdmin",
-                   RegisterDate = DateTime.Now,
+                   CreateDate = DateTime.Now.ToString(),
                    Name = "الیاس",
                    Family = "مرآتی",
                    Email = "elias.merati@gmail.com",
@@ -38,6 +39,7 @@ namespace Elias.Data.Context
                    LinkedIn= "elias-merati",
                    PhoneNumber="09223610626",
                    Skype = "Elias Merati",
+                   IsActive = true,
                });
             #endregion
         }
