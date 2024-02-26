@@ -40,7 +40,7 @@ namespace Elias.Application.Services
                 MainSkill = user.MainSkill,
                 Name = user.Name,
                 Ostan = user.Ostan,
-                Password = user.Password,
+                Password =PasswordHelper.EncodePasswordMd5(user.Password),
                 PhoneNumber = user.PhoneNumber,
                 ShortDescription = user.ShortDescription,
                 Skills = user.Skills,
@@ -118,7 +118,7 @@ namespace Elias.Application.Services
             { 
                 return  LoginResult.UserNotFound; 
             }
-            string hashPass = login.Password;
+            string hashPass = PasswordHelper.EncodePasswordMd5(login.Password);
             if ( user.Password != hashPass)
             {
                 return LoginResult.UserNotFound;

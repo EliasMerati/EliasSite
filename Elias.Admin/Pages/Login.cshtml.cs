@@ -24,8 +24,10 @@ namespace Elias.Admin.Pages
 
         
         public LoginDto login { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (User.Identity.IsAuthenticated) { return Redirect("Index"); }
+            return Page();
         }
 
         public async Task<IActionResult> OnPost()
