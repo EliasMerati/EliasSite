@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/Login"
 @model Elias.Admin.Pages.LoginModel
 @{
     ViewData["Title"] = "ورود";
@@ -17,15 +17,8 @@
 <body>
     <div class="box">
         <form action="#" method="post">
-            <label asp-for="Login.Email">Email</label><br>
-            <input type="text" asp-for="Login.Email" id="uname" placeholder="Enter Email" class="input-box">
-            <br><br>
-            <label asp-for="Login.Password">Password</label><br>
-            <input type="password" asp-for="Login.Password" id="uname" placeholder="Enter Password" class="input-box"><br>
-            <div class="forget">
-                <label class="checkbox-label">
-                    <input asp-for="Login.RememberMe" type="checkbox">
-                    <span class="checkbox-custom "></span>
+            <label asp-for="login.Email">Email</label><br>            <input type="text" asp-for="login.Email" id="uname" placeholder="Enter Email" class="input-box">            <br><br>            <label asp-for="login.Password">Password</label><br>            <input type="password" asp-for="login.Password" id="uname" placeholder="Enter Password" class="input-box"><br>            <div class="forget">
+                <label class="checkbox-label">                    <input asp-for="login.RememberMe" type="checkbox">                    <span class="checkbox-custom "></span>
                     <span class="label-text">Remember me</span>
                 </label>
                 <span class="fg">

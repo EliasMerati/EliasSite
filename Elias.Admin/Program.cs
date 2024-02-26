@@ -1,5 +1,6 @@
 using Elias.Admin.Configuration;
 using Elias.Data.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,18 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 services.AddRazorPages();
 services.Configuration();
+services.AddAuthentication(opt =>
+{
+    opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(o =>
+{
+    o.LoginPath = "/Login";
+    o.ExpireTimeSpan = TimeSpan.FromDays(30);
+    o.LogoutPath = "/LogOut";
+});
 services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString")));
 #endregion
 // Add services to the container.
@@ -27,7 +40,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

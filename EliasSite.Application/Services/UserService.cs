@@ -4,6 +4,11 @@ using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
 using Elias.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using System.Net;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace Elias.Application.Services
 {
@@ -114,7 +119,7 @@ namespace Elias.Application.Services
                 return LoginResult.UserNotFound;
             }
 
-            return  LoginResult.Success;
+            return LoginResult.Success;
         }
 
         public async Task<UpdateUserResult> UpdateUser(UpdateUserDto user)
