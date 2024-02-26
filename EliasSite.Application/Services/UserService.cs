@@ -105,6 +105,11 @@ namespace Elias.Application.Services
                 await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task<bool> IsExistUser()
+        {
+            return await _db.Users.AnyAsync();
+        }
+
         public async Task<LoginResult> Login(LoginDto login)
         {
             var email = login.Email.Trim().ToLower();
