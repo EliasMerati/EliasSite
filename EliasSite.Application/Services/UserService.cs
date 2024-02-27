@@ -105,6 +105,19 @@ namespace Elias.Application.Services
                 await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task<List<UserDto>> GetUserForAdminAsync()
+        {
+            return  _db.Users.Select( p => new UserDto
+            {
+                Familly = p.Familly,
+                MainSkill = p.MainSkill,
+                Name = p.Name,
+                PhoneNumber= p.PhoneNumber,
+                UserName = p.UserName,
+                Id = p.Id,
+            }).ToList();
+        }
+
         public async Task<bool> IsExistUser()
         {
             return await _db.Users.AnyAsync();

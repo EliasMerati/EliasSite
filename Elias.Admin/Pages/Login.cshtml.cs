@@ -26,7 +26,7 @@ namespace Elias.Admin.Pages
         public LoginDto login { get; set; }
         public IActionResult OnGet()
         {
-            if (User.Identity.IsAuthenticated) { return Redirect("Index"); }
+            if (User.Identity.IsAuthenticated) { return RedirectToPage("Index"); }
             return Page();
         }
 
@@ -58,6 +58,7 @@ namespace Elias.Admin.Pages
                 var properties = new AuthenticationProperties { IsPersistent = true };
 
                 await HttpContext.SignInAsync(principal, properties);
+                return RedirectToPage("Index");
                 #endregion
             }
 

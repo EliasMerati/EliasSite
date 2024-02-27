@@ -2,6 +2,39 @@
 
 namespace Elias.Data.DTOs.UserDto
 {
+    #region UserDto
+    public class UserDto
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "نام")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string Name { get; set; }
+
+        [Display(Name = "نام خانوادگی")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string Familly { get; set; }
+
+        [Display(Name = "نام کاربری")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string UserName { get; set; }
+
+        [Display(Name = "مهارت اصلی")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string MainSkill { get; set; }
+
+        [Display(Name = "موبایل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string PhoneNumber { get; set; }
+    }
+  
+    #endregion
+
     #region Create User DTO
     public enum CreateUserResult
     { Success, Error }

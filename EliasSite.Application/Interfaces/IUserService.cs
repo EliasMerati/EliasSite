@@ -5,6 +5,7 @@ namespace Elias.Application.Interfaces
 {
     public interface IUserService
     {
+        Task<List<UserDto>> GetUserForAdminAsync();
         Task<bool> DuplicateEmail(int id ,string email);
         Task<bool> DuplicateMobile(int id ,string phoneNumber);
         Task<CreateUserResult> CreateUserAsync(CreateUserDto user);
