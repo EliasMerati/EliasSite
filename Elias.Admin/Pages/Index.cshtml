@@ -9,7 +9,7 @@
         <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
             <div class="col-sm-12">
                 <div class="col-md-12" style="margin:10px 0;">
-                    <a asp-page="CreateUser" class="btn btn-success">افزودن ادمین جدید</a>
+                    <a href="/User/Create" class="btn btn-success">افزودن ادمین جدید</a>
                 </div>
                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>
@@ -32,7 +32,7 @@
                                 <td>@item.PhoneNumber</td>
                                 <td>@item.MainSkill</td>
                                 <td>
-                                    <a asp-page="EditUser" class="btn btn-warning btn-sm" asp-route-id="@item.Id">ویرایش</a>
+                                    <a href="/User/Update" class="btn btn-warning btn-sm" asp-route-id="@item.Id">ویرایش</a>
                                 </td>
                             }
                         </tr>
