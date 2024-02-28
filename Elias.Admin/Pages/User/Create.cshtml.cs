@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.User
 {
+#nullable disable
     public class CreateModel : PageModel
     {
         #region Injection
@@ -30,7 +31,7 @@ namespace Elias.Admin.Pages.User
             }
             #endregion
             await _userService.CreateUserAsync(user, Image, Resumeh);
-            return Redirect("Index");
+            return RedirectToPage("Index");
         }
     }
 }

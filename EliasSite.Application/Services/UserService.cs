@@ -1,14 +1,10 @@
 ﻿using Elias.Application.Interfaces;
+using Elias.Common;
 using Elias.Data.Context;
 using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
-using Elias.Common;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
-using System.Net;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Elias.Application.Services
@@ -118,7 +114,7 @@ namespace Elias.Application.Services
                 PhoneNumber = p.PhoneNumber,
                 UserName = p.UserName,
                 Id = p.Id,
-            }).ToList();
+            }).AsNoTracking().ToList();
         }
 
         public async Task<bool> IsExistUser()
@@ -203,7 +199,7 @@ namespace Elias.Application.Services
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
-                        Image.CopyTo(stream);
+                       Image.CopyTo(stream);
                     }
                 }
             }
@@ -273,8 +269,6 @@ namespace Elias.Application.Services
                 }
             }
         }
-        
-
         public async Task<UpdateUserResult> UpdateUser(UpdateUserDto user, IFormFile Image, IFormFile Resumeh)
         {
             if (user is null)
