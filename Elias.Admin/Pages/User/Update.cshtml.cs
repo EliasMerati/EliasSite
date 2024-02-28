@@ -16,7 +16,7 @@ namespace Elias.Admin.Pages.User
         }
         #endregion
 
-        
+
         public UpdateUserDto user { get; set; }
 
         public async Task<IActionResult> OnGet(int Id)
@@ -27,7 +27,7 @@ namespace Elias.Admin.Pages.User
             return Page();
         }
 
-        public async Task<IActionResult> OnPost(UpdateUserDto newuser)
+        public async Task<IActionResult> OnPost(UpdateUserDto newuser, IFormFile Image, IFormFile Resumeh)
         {
             #region Validation
             if (!ModelState.IsValid)
@@ -54,7 +54,7 @@ namespace Elias.Admin.Pages.User
             user.ShortDescription = newuser.ShortDescription;
             user.IsActive = newuser.IsActive;
 
-            await _userService.UpdateUser(user);
+            await _userService.UpdateUser(user, Image, Resumeh);
             return Redirect("Index");
         }
     }

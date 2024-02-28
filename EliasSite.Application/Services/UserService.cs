@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Net;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 
 
 namespace Elias.Application.Services
@@ -24,8 +25,9 @@ namespace Elias.Application.Services
         }
         #endregion
 
-        public async Task<CreateUserResult> CreateUserAsync(CreateUserDto user)
+        public async Task<CreateUserResult> CreateUserAsync(CreateUserDto user, IFormFile Image, IFormFile Resumeh)
         {
+
             var newuser = new User()
             {
                 Address = user.Address,
@@ -40,14 +42,15 @@ namespace Elias.Application.Services
                 MainSkill = user.MainSkill,
                 Name = user.Name,
                 Ostan = user.Ostan,
-                Password =PasswordHelper.EncodePasswordMd5(user.Password),
+                Password = PasswordHelper.EncodePasswordMd5(user.Password),
                 PhoneNumber = user.PhoneNumber,
                 ShortDescription = user.ShortDescription,
                 Skills = user.Skills,
                 Skype = user.Skype,
                 UserName = user.UserName,
             };
-
+            await SetProfilePicUser(newuser, Image);
+            await SetResumehUser(newuser, Resumeh);
             await _db.AddAsync(newuser);
             await _db.SaveChangesAsync();
 
@@ -56,7 +59,7 @@ namespace Elias.Application.Services
 
         public async Task<bool> DuplicateEmail(int id, string email)
         {
-            return await _db.Users.AnyAsync(u=> u.Email == email && u.Id != id);
+            return await _db.Users.AnyAsync(u => u.Email == email && u.Id != id);
         }
 
         public async Task<bool> DuplicateMobile(int id, string phoneNumber)
@@ -101,18 +104,18 @@ namespace Elias.Application.Services
 
         public async Task<User> GetByEmail(string email)
         {
-            return 
+            return
                 await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task<List<UserDto>> GetUserForAdminAsync()
         {
-            return  _db.Users.Select( p => new UserDto
+            return _db.Users.Select(p => new UserDto
             {
                 Familly = p.Familly,
                 MainSkill = p.MainSkill,
                 Name = p.Name,
-                PhoneNumber= p.PhoneNumber,
+                PhoneNumber = p.PhoneNumber,
                 UserName = p.UserName,
                 Id = p.Id,
             }).ToList();
@@ -126,13 +129,13 @@ namespace Elias.Application.Services
         public async Task<LoginResult> Login(LoginDto login)
         {
             var email = login.Email.Trim().ToLower();
-            var user = await GetByEmail(email); 
-            if (user is null) 
-            { 
-                return  LoginResult.UserNotFound; 
+            var user = await GetByEmail(email);
+            if (user is null)
+            {
+                return LoginResult.UserNotFound;
             }
             string hashPass = PasswordHelper.EncodePasswordMd5(login.Password);
-            if ( user.Password != hashPass)
+            if (user.Password != hashPass)
             {
                 return LoginResult.UserNotFound;
             }
@@ -140,13 +143,145 @@ namespace Elias.Application.Services
             return LoginResult.Success;
         }
 
-        public async Task<UpdateUserResult> UpdateUser(UpdateUserDto user)
+        private async Task SetProfilePicUser(User user, IFormFile Image)
+        {
+            if (Image is not null)
+            {
+                if (user.UserImage is null)
+                {
+                    user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Image.CopyTo(stream);
+                    }
+                }
+                else
+                {
+                    var DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    if (File.Exists(DeleteDemoPath))
+                    {
+                        File.Delete(DeleteDemoPath);
+                    }
+
+                    user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Image.CopyTo(stream);
+                    }
+                }
+            }
+        }
+
+        private async Task UpdatePicUser(UpdateUserDto user, IFormFile Image)
+        {
+            if (Image is not null)
+            {
+                if (user.UserImage is null)
+                {
+                    user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Image.CopyTo(stream);
+                    }
+                }
+                else
+                {
+                    var DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    if (File.Exists(DeleteDemoPath))
+                    {
+                        File.Delete(DeleteDemoPath);
+                    }
+
+                    user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Image.CopyTo(stream);
+                    }
+                }
+            }
+        }
+
+        private async Task UpdateResumehUser(UpdateUserDto user, IFormFile Resumeh)
+        {
+            if (Resumeh is not null)
+            {
+                if (user.Resumeh is null)
+                {
+                    user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
+                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    using (var stream = new FileStream(Resumehpath, FileMode.CreateNew))
+                    {
+
+                        Resumeh.CopyTo(stream);
+                    }
+                }
+                else
+                {
+                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    if (File.Exists(DeleteResumehPath))
+                    {
+                        File.Delete(DeleteResumehPath);
+                    }
+
+                    user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Resumeh.CopyTo(stream);
+                    }
+                }
+            }
+        }
+        private async Task SetResumehUser(User user, IFormFile Resumeh)
+        {
+            if (Resumeh is not null)
+            {
+                if (user.Resumeh is null)
+                {
+                    user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
+                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    using (var stream = new FileStream(Resumehpath, FileMode.CreateNew))
+                    {
+
+                        Resumeh.CopyTo(stream);
+                    }
+                }
+                else
+                {
+                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    if (File.Exists(DeleteResumehPath))
+                    {
+                        File.Delete(DeleteResumehPath);
+                    }
+
+                    user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
+                    {
+
+                        Resumeh.CopyTo(stream);
+                    }
+                }
+            }
+        }
+        
+
+        public async Task<UpdateUserResult> UpdateUser(UpdateUserDto user, IFormFile Image, IFormFile Resumeh)
         {
             if (user is null)
             {
                 return UpdateUserResult.UserNotFound;
             }
-            if (await DuplicateEmail(user.Id,user.Email.ToLower().Trim()))
+            if (await DuplicateEmail(user.Id, user.Email.ToLower().Trim()))
             {
                 return UpdateUserResult.DuplicateEmail;
             }
@@ -154,9 +289,12 @@ namespace Elias.Application.Services
             {
                 return UpdateUserResult.DuplicateMobile;
             }
+            await UpdatePicUser(user, Image);
+            await UpdateResumehUser(user, Resumeh);
             _db.Update(user);
             await _db.SaveChangesAsync();
             return UpdateUserResult.Success;
         }
+
     }
 }

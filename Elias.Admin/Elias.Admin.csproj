@@ -15,4 +15,9 @@
     <ProjectReference Include="..\EliasSite.Application\Elias.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Resumeh\" />
+    <Folder Include="wwwroot\ProfilePic\" />
+  </ItemGroup>
+
 </Project>

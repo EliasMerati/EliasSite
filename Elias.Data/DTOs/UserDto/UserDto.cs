@@ -176,6 +176,12 @@ namespace Elias.Data.DTOs.UserDto
         [MaxLength(50)]
         public string City { get; set; }
 
+        [Display(Name = "رزومه")]
+        public string Resumeh { get; set; }
+
+        [Display(Name = "عکس")]
+        public string UserImage { get; set; }
+
         [Display(Name = "آدرس")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         public string Address { get; set; }

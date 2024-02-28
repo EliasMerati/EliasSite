@@ -1,5 +1,6 @@
 ﻿using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Elias.Application.Interfaces
 {
@@ -8,9 +9,9 @@ namespace Elias.Application.Interfaces
         Task<List<UserDto>> GetUserForAdminAsync();
         Task<bool> DuplicateEmail(int id ,string email);
         Task<bool> DuplicateMobile(int id ,string phoneNumber);
-        Task<CreateUserResult> CreateUserAsync(CreateUserDto user);
+        Task<CreateUserResult> CreateUserAsync(CreateUserDto user , IFormFile Image , IFormFile Resumeh);
         Task<UpdateUserDto> FindUserForUpdateAsync(int Id);
-        Task<UpdateUserResult> UpdateUser(UpdateUserDto user);
+        Task<UpdateUserResult> UpdateUser(UpdateUserDto user, IFormFile Image, IFormFile Resumeh);
         Task<User> FindUserAsync(int Id);
         Task<User> GetByEmail(string email);
         Task<bool> IsExistUser();
