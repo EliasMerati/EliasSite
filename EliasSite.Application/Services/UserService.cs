@@ -278,20 +278,20 @@ namespace Elias.Application.Services
             await _db.SaveChangesAsync();
             return UpdateUserResult.Success;
         }
-        private string HashPassword(string password)
+        private async Task<string> HashPassword(string password)
         {
             return PasswordHelper.EncodePasswordMd5(password);
         }
         public async void ChangeNewPassword(string username, string password)
         {
             var user = _db.Users.FirstOrDefault(u => u.UserName == username);
-            user.Password =  HashPassword(password);
+            user.Password = await HashPassword(password);
             _db.Users.Update(user);
             _db.SaveChanges();
         }
         public async Task<bool> CompareOldPassword(string password, string username)
         {
-            var HashPass =  HashPassword(password);
+            var HashPass = await HashPassword(password);
             return  _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
         }
     }
