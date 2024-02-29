@@ -11,7 +11,7 @@ namespace Elias.Admin.Pages
         private readonly IUserService _userService;
         public IndexModel(IUserService userService)
         {
-            _userService = userService;   
+            _userService = userService;
         }
         #endregion
 
@@ -20,10 +20,10 @@ namespace Elias.Admin.Pages
         {
             if (User.Identity.IsAuthenticated)
             {
-                users =await _userService.GetUserForAdminAsync();
+                users = await _userService.GetUserForAdminAsync();
                 return Page();
             }
-            return RedirectToPage("Login");  
+            return RedirectToPage("Login");
         }
     }
 }

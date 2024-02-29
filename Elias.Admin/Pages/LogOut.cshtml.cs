@@ -9,7 +9,7 @@ namespace Elias.Admin.Pages
         public async Task<IActionResult>  OnGet()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToPage("Index");
         }
     }
 }

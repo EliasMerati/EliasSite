@@ -10,6 +10,7 @@
             <div class="col-sm-12">
                 <div class="col-md-12" style="margin:10px 0;">
                     <a href="/User/Create" class="btn btn-success">افزودن ادمین جدید</a>
+                    <a asp-page="LogOut" class="btn btn-danger">خروج</a>
                 </div>
                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>
@@ -32,7 +33,8 @@
                                 <td>@item.PhoneNumber</td>
                                 <td>@item.MainSkill</td>
                                 <td>
-                                    <a href="/User/Update" class="btn btn-warning btn-sm" asp-route-id="@item.Id">ویرایش</a>
+                                    <a href="/User/Update/@item.Id" class="btn btn-warning btn-sm">ویرایش</a>
+                                    <a href="/User/ChangePassword" class="btn btn-primary btn-sm">تغییر پسورد</a>
                                 </td>
                             }
                         </tr>

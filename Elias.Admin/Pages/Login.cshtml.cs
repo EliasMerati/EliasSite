@@ -48,9 +48,8 @@ namespace Elias.Admin.Pages
                 var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                new Claim(ClaimTypes.Name,$"{user.Result.Name} {user.Result.Familly}"),
+                new Claim(ClaimTypes.Name,user.Result.UserName),
                 new Claim(ClaimTypes.MobilePhone,user.Result.PhoneNumber),
-                new Claim(ClaimTypes.Surname,user.Result.UserName),
             };
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

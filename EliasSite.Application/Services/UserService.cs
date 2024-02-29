@@ -52,23 +52,19 @@ namespace Elias.Application.Services
 
             return CreateUserResult.Success;
         }
-
         public async Task<bool> DuplicateEmail(int id, string email)
         {
             return await _db.Users.AnyAsync(u => u.Email == email && u.Id != id);
         }
-
         public async Task<bool> DuplicateMobile(int id, string phoneNumber)
         {
             return await _db.Users.AnyAsync(u => u.PhoneNumber == phoneNumber && u.Id != id);
         }
-
         public async Task<User> FindUserAsync(int Id)
         {
             var user = await _db.Users.FindAsync(Id);
             return user;
         }
-
         public async Task<UpdateUserDto> FindUserForUpdateAsync(int Id)
         {
             var findUser = await FindUserAsync(Id);
@@ -97,13 +93,11 @@ namespace Elias.Application.Services
             };
 
         }
-
         public async Task<User> GetByEmail(string email)
         {
             return
                 await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
-
         public async Task<List<UserDto>> GetUserForAdminAsync()
         {
             return _db.Users.Select(p => new UserDto
@@ -116,12 +110,10 @@ namespace Elias.Application.Services
                 Id = p.Id,
             }).AsNoTracking().ToList();
         }
-
         public async Task<bool> IsExistUser()
         {
             return await _db.Users.AnyAsync();
         }
-
         public async Task<LoginResult> Login(LoginDto login)
         {
             var email = login.Email.Trim().ToLower();
@@ -138,7 +130,6 @@ namespace Elias.Application.Services
 
             return LoginResult.Success;
         }
-
         private async Task SetProfilePicUser(User user, IFormFile Image)
         {
             if (Image is not null)
@@ -171,7 +162,6 @@ namespace Elias.Application.Services
                 }
             }
         }
-
         private async Task UpdatePicUser(UpdateUserDto user, IFormFile Image)
         {
             if (Image is not null)
@@ -204,7 +194,6 @@ namespace Elias.Application.Services
                 }
             }
         }
-
         private async Task UpdateResumehUser(UpdateUserDto user, IFormFile Resumeh)
         {
             if (Resumeh is not null)
@@ -289,6 +278,21 @@ namespace Elias.Application.Services
             await _db.SaveChangesAsync();
             return UpdateUserResult.Success;
         }
-
+        private string HashPassword(string password)
+        {
+            return PasswordHelper.EncodePasswordMd5(password);
+        }
+        public async void ChangeNewPassword(string username, string password)
+        {
+            var user = _db.Users.FirstOrDefault(u => u.UserName == username);
+            user.Password =  HashPassword(password);
+            _db.Users.Update(user);
+            _db.SaveChanges();
+        }
+        public async Task<bool> CompareOldPassword(string password, string username)
+        {
+            var HashPass =  HashPassword(password);
+            return  _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
+        }
     }
 }
