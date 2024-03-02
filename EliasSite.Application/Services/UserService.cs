@@ -123,7 +123,7 @@ namespace Elias.Application.Services
                 else
                 {
                     string DeleteDemoPath = "";
-                     DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
                     if (File.Exists(DeleteDemoPath))
                     {
                         File.Delete(DeleteDemoPath);
@@ -167,7 +167,7 @@ namespace Elias.Application.Services
                     using (var stream = new FileStream(ImagePath, FileMode.CreateNew))
                     {
 
-                       Image.CopyTo(stream);
+                        Image.CopyTo(stream);
                     }
                 }
             }
@@ -258,9 +258,8 @@ namespace Elias.Application.Services
         public async Task<bool> CompareOldPassword(string password, string username)
         {
             var HashPass = await HashPassword(password);
-            return  _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
+            return _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
         }
-
         public async Task<AboutMeInfoDto> GetAboutMeInfo()
         {
             return await _db.Users.Select(u => new AboutMeInfoDto()
@@ -274,6 +273,14 @@ namespace Elias.Application.Services
                 Name = u.Name,
                 PhoneNumber = u.PhoneNumber,
                 Skype = u.Skype,
+            }).SingleAsync();
+        }
+        public async Task<SocialDto> GetSocialInfo()
+        {
+            return await _db.Users.Select(u => new SocialDto()
+            {
+                GitHub = u.GitHub,
+                LinkedIn = u.LinkedIn,
             }).SingleAsync();
         }
     }

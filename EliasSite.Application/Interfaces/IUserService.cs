@@ -19,5 +19,7 @@ namespace Elias.Application.Interfaces
         void ChangeNewPassword(string username, string password);
         Task<bool> CompareOldPassword(string password, string username);
         Task<AboutMeInfoDto> GetAboutMeInfo();
+        Task<SocialDto> GetSocialInfo();
+        Task<MainInfoDto> GetMainInfo();
     }
 }

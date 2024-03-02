@@ -1,42 +1,20 @@
-﻿<ul class="list-inline  mb-0 mt-4">
-    <li class="list-inline-item outer radius-2 mr-1 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-facebook-f btn-icon-inner"></span>
-        </a>
-    </li>
+﻿@using Elias.Application.Interfaces
+@using Elias.Data.DTOs.UserDto
+@inject IUserService _user
+@{
+    SocialDto Social = await _user.GetSocialInfo();
+}
+
+<ul class="list-inline  mb-0 mt-4">
+
     <li class="list-inline-item mr-1 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-google btn-icon-inner"></span>
-        </a>
-    </li>
-    <li class="list-inline-item mx-0 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-twitter btn-icon-inner"></span>
-        </a>
-    </li>
-    <li class="list-inline-item outer radius-2 mr-1 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-instagram btn-icon-inner"></span>
-        </a>
-    </li>
-    <li class="list-inline-item mr-1 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
+        <a class="inner btn btn-round btn-icon" href="@Social.LinkedIn">
             <span class="fab fa-linkedin btn-icon-inner"></span>
         </a>
     </li>
     <li class="list-inline-item mx-0 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
+        <a class="inner btn btn-round btn-icon" href="@Social.GitHub">
             <span class="fab fa-github btn-icon-inner"></span>
-        </a>
-    </li>
-    <li class="list-inline-item mr-1 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-vimeo btn-icon-inner"></span>
-        </a>
-    </li>
-    <li class="list-inline-item mx-0 outer radius-2 mb-2 mb-lg-0">
-        <a class="inner btn btn-round btn-icon" href="#">
-            <span class="fab fa-youtube btn-icon-inner"></span>
         </a>
     </li>
 </ul>

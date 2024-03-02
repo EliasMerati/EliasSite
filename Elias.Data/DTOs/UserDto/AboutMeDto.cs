@@ -18,4 +18,17 @@ namespace Elias.Data.DTOs.UserDto
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
     }
+
+    public class SocialDto
+    {
+        public string GitHub { get; set; }
+        public string LinkedIn { get; set; }
+    }
+
+    public class MainInfoDto
+    {
+        public string Name { get; set; }
+        public string Familly { get; set; }
+        public string Skills { get; set; }
+    }
 }
