@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Elias.Data.DTOs.UserDto
 {
@@ -80,6 +81,12 @@ namespace Elias.Data.DTOs.UserDto
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         [MaxLength(50)]
         public string City { get; set; }
+
+        [Display(Name = "رزومه")]
+        public IFormFile Resumeh { get; set; }
+
+        [Display(Name = "عکس")]
+        public IFormFile UserImage { get; set; }
 
         [Display(Name = "آدرس")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
@@ -177,10 +184,10 @@ namespace Elias.Data.DTOs.UserDto
         public string City { get; set; }
 
         [Display(Name = "رزومه")]
-        public string Resumeh { get; set; }
+        public IFormFile Resumeh { get; set; }
 
         [Display(Name = "عکس")]
-        public string UserImage { get; set; }
+        public IFormFile UserImage { get; set; }
 
         [Display(Name = "آدرس")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]

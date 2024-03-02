@@ -21,7 +21,7 @@ namespace Elias.Data.Context
                {
                    Id = 1,
                    UserName = "EliasAdmin",
-                   CreateDate = DateTime.Now.ToString(),
+                   CreateDate = DateTime.Now,
                    Name = "الیاس",
                    Family = "مرآتی",
                    Email = "elias.merati@gmail.com",

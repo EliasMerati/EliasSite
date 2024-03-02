@@ -1,15 +1,19 @@
 ﻿@page
+@using Elias.Application.Interfaces
 @model IndexModel
 @{
     ViewData["Title"] = "ادمین";
 }
-
+@inject IUserService _UserService
 <div class="box-body">
     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
         <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
             <div class="col-sm-12">
                 <div class="col-md-12" style="margin:10px 0;">
-                    <a href="/User/Create" class="btn btn-success">افزودن ادمین جدید</a>
+                    @if ( await _UserService.IsExistUser() is false )
+                    {
+                        <a href="/User/Create" class="btn btn-success">افزودن ادمین جدید</a>
+                    }
                     <a asp-page="LogOut" class="btn btn-danger">خروج</a>
                 </div>
                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
@@ -24,9 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr role="row" class="even">
-                            @foreach (var item in Model.users)
-                            {
+
+                        @foreach (var item in Model.users)
+                        {
+                            <tr role="row" class="even">
                                 <td>@item.Name</td>
                                 <td>@item.Familly</td>
                                 <td>@item.UserName</td>
@@ -36,8 +41,9 @@
                                     <a href="/User/Update/@item.Id" class="btn btn-warning btn-sm">ویرایش</a>
                                     <a href="/User/ChangePassword" class="btn btn-primary btn-sm">تغییر پسورد</a>
                                 </td>
-                            }
-                        </tr>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>

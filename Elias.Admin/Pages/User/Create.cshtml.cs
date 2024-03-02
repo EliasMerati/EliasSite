@@ -24,14 +24,8 @@ namespace Elias.Admin.Pages.User
 
         public async Task<IActionResult> OnPost(IFormFile Image, IFormFile Resumeh)
         {
-            #region Validation
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            #endregion
             await _userService.CreateUserAsync(user, Image, Resumeh);
-            return RedirectToPage("Index");
+            return RedirectToPage("/Index");
         }
     }
 }
