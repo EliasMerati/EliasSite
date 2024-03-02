@@ -283,5 +283,14 @@ namespace Elias.Application.Services
                 LinkedIn = u.LinkedIn,
             }).SingleAsync();
         }
+        public async Task<MainInfoDto> GetMainInfo()
+        {
+            return await _db.Users.Select(u => new MainInfoDto()
+            {
+               Familly = u.Familly,
+               Name = u.Name,
+               Skills = u.Skills,
+            }).SingleAsync();
+        }
     }
 }
