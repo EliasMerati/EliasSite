@@ -76,7 +76,7 @@ namespace Elias.Application.Services
         }
         public async Task<List<UserDto>> GetUserForAdminAsync()
         {
-            return _db.Users.Select(p => new UserDto
+            return await _db.Users.Select(p => new UserDto
             {
                 Familly = p.Familly,
                 MainSkill = p.MainSkill,
@@ -84,7 +84,7 @@ namespace Elias.Application.Services
                 PhoneNumber = p.PhoneNumber,
                 UserName = p.UserName,
                 Id = p.Id,
-            }).AsNoTracking().ToList();
+            }).ToListAsync();
         }
         public async Task<bool> IsExistUser()
         {
@@ -259,6 +259,22 @@ namespace Elias.Application.Services
         {
             var HashPass = await HashPassword(password);
             return  _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
+        }
+
+        public async Task<AboutMeInfoDto> GetAboutMeInfo()
+        {
+            return await _db.Users.Select(u => new AboutMeInfoDto()
+            {
+                BirthDay = u.BirthDay,
+                City = u.City,
+                Email = u.Email,
+                Familly = u.Familly,
+                MainDescription = u.MainDescription,
+                MainSkill = u.MainSkill,
+                Name = u.Name,
+                PhoneNumber = u.PhoneNumber,
+                Skype = u.Skype,
+            }).SingleAsync();
         }
     }
 }

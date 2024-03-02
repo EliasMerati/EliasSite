@@ -12,6 +12,7 @@ namespace Elias.Data.Entities
         public string UserImage { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public string BirthDay { get; set; }
         public string Ostan { get; set; }
         public string City { get; set; }
         public string Address { get; set; }

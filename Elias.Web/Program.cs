@@ -1,3 +1,4 @@
+using Elias.Admin.Configuration;
 using Elias.Data.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 // Add services to the container.
 services.AddControllersWithViews();
+services.Configuration();
 services.AddMvc();
 
 #region Authentication
