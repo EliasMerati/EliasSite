@@ -21,6 +21,8 @@ namespace Elias.Application.Services
         }
         #endregion
 
+
+        #region User Services
         public async Task<CreateUserResult> CreateUserAsync(CreateUserDto user, IFormFile Image, IFormFile Resumeh)
         {
 
@@ -106,6 +108,17 @@ namespace Elias.Application.Services
 
             return LoginResult.Success;
         }
+        public async Task UpdateUser(User user, IFormFile Image, IFormFile Resumeh)
+        {
+            user.CreateDate = DateTime.Now;
+            await UpdatePicUser(user, Image);
+            await UpdateResumehUser(user, Resumeh);
+            _db.Update(user);
+            await _db.SaveChangesAsync();
+        }
+        #endregion
+
+        #region Insert&Update Resumeh - ProfilePic
         private async Task SetProfilePicUser(User user, IFormFile Image)
         {
             if (Image is not null)
@@ -236,14 +249,9 @@ namespace Elias.Application.Services
                 }
             }
         }
-        public async Task UpdateUser(User user, IFormFile Image, IFormFile Resumeh)
-        {
-            user.CreateDate = DateTime.Now;
-            await UpdatePicUser(user, Image);
-            await UpdateResumehUser(user, Resumeh);
-            _db.Update(user);
-            await _db.SaveChangesAsync();
-        }
+        #endregion
+
+        #region Password Services
         private async Task<string> HashPassword(string password)
         {
             return PasswordHelper.EncodePasswordMd5(password);
@@ -260,6 +268,9 @@ namespace Elias.Application.Services
             var HashPass = await HashPassword(password);
             return _db.Users.Any(u => u.UserName == username && u.Password == HashPass);
         }
+        #endregion
+
+        #region AboutMe Services
         public async Task<AboutMeInfoDto> GetAboutMeInfo()
         {
             return await _db.Users.Select(u => new AboutMeInfoDto()
@@ -287,10 +298,22 @@ namespace Elias.Application.Services
         {
             return await _db.Users.Select(u => new MainInfoDto()
             {
-               Familly = u.Familly,
-               Name = u.Name,
-               Skills = u.Skills,
+                Familly = u.Familly,
+                Name = u.Name,
+                Skills = u.Skills,
             }).SingleAsync();
         }
+        public async Task<HeaderDto> GetHeaderInfo()
+        {
+            return await _db.Users.Select(u => new HeaderDto()
+            {
+                Familly = u.Familly,
+                Name = u.Name,
+                MainSkill = u.MainSkill,
+                UserImage = u.UserImage,
+            }).SingleAsync();
+        }
+        #endregion
+
     }
 }

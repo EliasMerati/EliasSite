@@ -31,4 +31,12 @@ namespace Elias.Data.DTOs.UserDto
         public string Familly { get; set; }
         public string Skills { get; set; }
     }
+
+    public class HeaderDto
+    {
+        public string Name { get; set; }
+        public string Familly { get; set; }
+        public string MainSkill { get; set; }
+        public string UserImage { get; set; }
+    }
 }
