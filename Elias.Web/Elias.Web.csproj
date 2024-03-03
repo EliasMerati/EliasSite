@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ProfilePic\" />
+    <Folder Include="wwwroot\Resumeh\" />
+  </ItemGroup>
+
 </Project>

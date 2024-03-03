@@ -3,6 +3,7 @@ using Elias.Common;
 using Elias.Data.Context;
 using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
@@ -126,7 +127,7 @@ namespace Elias.Application.Services
                 if (user.UserImage is null)
                 {
                     user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
@@ -136,14 +137,14 @@ namespace Elias.Application.Services
                 else
                 {
                     string DeleteDemoPath = "";
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     if (File.Exists(DeleteDemoPath))
                     {
                         File.Delete(DeleteDemoPath);
                     }
 
                     user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     using (var stream = new FileStream(DeleteDemoPath, FileMode.CreateNew))
                     {
 
@@ -154,12 +155,12 @@ namespace Elias.Application.Services
         }
         private async Task UpdatePicUser(User user, IFormFile Image)
         {
-            if (Image is null)
+            if (Image is not null)
             {
                 if (user.UserImage is null)
                 {
                     user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
@@ -169,14 +170,14 @@ namespace Elias.Application.Services
                 else
                 {
                     string ImagePath = "";
-                    ImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    ImagePath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     if (File.Exists(ImagePath))
                     {
                         File.Delete(ImagePath);
                     }
 
                     user.UserImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    ImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ProfilePic/", user.UserImage);
+                    ImagePath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/ProfilePic/", user.UserImage);
                     using (var stream = new FileStream(ImagePath, FileMode.CreateNew))
                     {
 
@@ -192,7 +193,7 @@ namespace Elias.Application.Services
                 if (user.Resumeh is null)
                 {
                     user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
-                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     using (var stream = new FileStream(Resumehpath, FileMode.CreateNew))
                     {
 
@@ -201,14 +202,14 @@ namespace Elias.Application.Services
                 }
                 else
                 {
-                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     if (File.Exists(DeleteResumehPath))
                     {
                         File.Delete(DeleteResumehPath);
                     }
 
                     user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
@@ -224,7 +225,7 @@ namespace Elias.Application.Services
                 if (user.Resumeh is null)
                 {
                     user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
-                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    string Resumehpath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     using (var stream = new FileStream(Resumehpath, FileMode.CreateNew))
                     {
 
@@ -233,14 +234,14 @@ namespace Elias.Application.Services
                 }
                 else
                 {
-                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     if (File.Exists(DeleteResumehPath))
                     {
                         File.Delete(DeleteResumehPath);
                     }
 
                     user.Resumeh = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Resumeh.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resumeh/", user.Resumeh);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Resumeh/", user.Resumeh);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
