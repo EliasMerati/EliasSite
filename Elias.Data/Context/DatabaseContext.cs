@@ -1,5 +1,6 @@
 ﻿using Elias.Common;
 using Elias.Data.Entities;
+using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
 
 namespace Elias.Data.Context
@@ -12,6 +13,8 @@ namespace Elias.Data.Context
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<SkillGroup> SkillGroups { get; set; }
+        public DbSet<Skill> Skills { get; set; }
 
         private void SeedData(ModelBuilder modelBuilder)
         {

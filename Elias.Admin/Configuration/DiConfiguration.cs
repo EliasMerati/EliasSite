@@ -8,6 +8,8 @@ namespace Elias.Admin.Configuration
         public static void Configuration(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISkillGroupService, SkillGroupService>();
+            services.AddScoped<ISkillService, SkillService>();
         }
     }
 }
