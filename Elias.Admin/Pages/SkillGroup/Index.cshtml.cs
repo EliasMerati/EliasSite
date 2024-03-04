@@ -17,7 +17,7 @@ namespace Elias.Admin.Pages.SkillGroup
         public List<SkillGroupDto> SkillGroups { get; set; }
         public async void OnGet()
         {
-            SkillGroups = await _skillGroupService.GetAllSkillGroup();
+            SkillGroups =  _skillGroupService.GetAllSkillGroup();
         }
     }
 }

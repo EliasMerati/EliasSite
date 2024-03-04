@@ -5,10 +5,11 @@ namespace Elias.Application.Interfaces
 {
     public interface ISkillGroupService
     {
-        Task<List<SkillGroupDto>> GetAllSkillGroup();
+        List<SkillGroupDto> GetAllSkillGroup();
         Task AddSkillGroup(SkillGroupDto skillGroup);
         Task UpdateSkillGroup(SkillGroup skillGroup);
         Task<SkillGroup> FindById(int id);
         Task RemoveSkillGroup(int id);
+        bool IsSkillGroupExist();
     }
 }

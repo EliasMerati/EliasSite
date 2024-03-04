@@ -4,6 +4,7 @@ using Elias.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Elias.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240304180614_Add-Skill-And-SkillGroup")]
+    partial class AddSkillAndSkillGroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,22 @@ namespace Elias.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Elias.Data.Entities.Skills.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
+                });
 
             modelBuilder.Entity("Elias.Data.Entities.Skills.SkillGroup", b =>
                 {
@@ -124,7 +143,7 @@ namespace Elias.Data.Migrations
                             Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
                             BirthDay = "1362/06/30",
                             City = "نیشابور",
-                            CreateDate = new DateTime(2024, 3, 4, 21, 42, 38, 760, DateTimeKind.Local).AddTicks(7338),
+                            CreateDate = new DateTime(2024, 3, 4, 21, 36, 11, 557, DateTimeKind.Local).AddTicks(3818),
                             Email = "elias.merati@gmail.com",
                             GitHub = "EliasMerati",
                             IsActive = true,

@@ -3,6 +3,7 @@ using Elias.Data.Context;
 using Elias.Data.DTOs.SkillDto;
 using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,12 +38,17 @@ namespace Elias.Application.Services
             return await _db.SkillGroups.FindAsync(id);
         }
 
-        public Task<List<SkillGroupDto>> GetAllSkillGroup()
+        public List<SkillGroupDto> GetAllSkillGroup()
         {
             return _db.SkillGroups.Select(sg => new SkillGroupDto()
             {
                 SkillGroupName = sg.SkillGroupName,
-            }).AsNoTracking().ToListAsync();
+            }).AsNoTracking().ToList();
+        }
+
+        public bool IsSkillGroupExist()
+        {
+            return  _db.SkillGroups.Any();
         }
 
         public async Task RemoveSkillGroup(int id)
