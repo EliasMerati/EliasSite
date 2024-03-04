@@ -43,6 +43,7 @@ namespace Elias.Application.Services
             return _db.SkillGroups.Select(sg => new SkillGroupDto()
             {
                 SkillGroupName = sg.SkillGroupName,
+                Id = sg.Id,
             }).AsNoTracking().ToList();
         }
 
@@ -60,6 +61,7 @@ namespace Elias.Application.Services
 
         public async Task UpdateSkillGroup(SkillGroup skillGroup)
         {
+            skillGroup.CreateDate = DateTime.Now;
             _db.Update(skillGroup);
             await _db.SaveChangesAsync();
         }

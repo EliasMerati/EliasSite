@@ -1,4 +1,46 @@
-﻿@page
+﻿@page "{Id}"
 @model Elias.Admin.Pages.SkillGroup.UpdateSkillGroupModel
 @{
+    ViewData["Title"] = "ویرایش گروه مهارت ";
 }
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">ویرایش گروه مهارت </h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-page="UpdateSkillGroup" method="post">
+                    <input type="hidden" asp-for="skillGroup.Id" />
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            ویرایش گروه مهارت
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>نام گروه مهارت</label>
+                                <input type="text" asp-for="skillGroup.SkillGroupName" class="form-control">
+                                <span asp-validation-for="skillGroup.SkillGroupName"></span>
+                            </div>
+                            <button type="submit" class="btn btn-warning">ویرایش گروه مهارت </button>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.col-lg-4 -->
+
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
