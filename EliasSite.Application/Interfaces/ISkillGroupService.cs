@@ -9,7 +9,6 @@ namespace Elias.Application.Interfaces
         Task AddSkillGroup(SkillGroupDto skillGroup);
         Task UpdateSkillGroup(SkillGroup skillGroup);
         Task<SkillGroup> FindById(int id);
-        Task RemoveSkillGroup(int id);
         bool IsSkillGroupExist();
     }
 }

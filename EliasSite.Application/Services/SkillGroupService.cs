@@ -52,13 +52,6 @@ namespace Elias.Application.Services
             return  _db.SkillGroups.Any();
         }
 
-        public async Task RemoveSkillGroup(int id)
-        {
-            var skillgroup = FindById(id);
-            _db.Remove(skillgroup);
-            await _db.SaveChangesAsync();
-        }
-
         public async Task UpdateSkillGroup(SkillGroup skillGroup)
         {
             skillGroup.CreateDate = DateTime.Now;
