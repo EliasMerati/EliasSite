@@ -16,6 +16,10 @@ namespace Elias.Data.DTOs.SkillDto
         public int Id { get; set; }
         public int SkillGroupId { get; set; }
 
+        [Display(Name = " گروه مهارت")]
+        [MaxLength(150)]
+        public string SkillGroupName { get; set; }
+
         [Display(Name ="مهارت")]
         [MaxLength(150)]
         public string SkillName { get; set; }

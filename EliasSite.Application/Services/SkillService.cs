@@ -30,10 +30,12 @@ namespace Elias.Application.Services
         public List<SkillDto> GetSkillList()
         {
             return _db.Skills
+                .Include(s=>s.SkillGroup)
                 .Select(s => new SkillDto
                 {
                     Id = s.Id,
                     SkillName = s.SkillName,
+                    SkillGroupName = s.SkillGroup.SkillGroupName,
                     SkillGroupId = s.SkillGroupId,
                     SkillValue = s.SkillValue,
                 }).AsNoTracking().ToList();
