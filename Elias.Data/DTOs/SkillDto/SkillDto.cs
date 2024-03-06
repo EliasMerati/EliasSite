@@ -14,6 +14,8 @@ namespace Elias.Data.DTOs.SkillDto
     public class SkillDto
     {
         public int Id { get; set; }
+
+        
         public int SkillGroupId { get; set; }
 
         [Display(Name = " گروه مهارت")]

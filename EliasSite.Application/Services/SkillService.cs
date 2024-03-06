@@ -16,7 +16,7 @@ namespace Elias.Application.Services
         }
         #endregion
 
-        public async Task CreateSkill(SkillDto skill)
+        public async Task CreateSkill(Skill skill)
         {
             await _db.AddAsync(skill);
             await _db.SaveChangesAsync();

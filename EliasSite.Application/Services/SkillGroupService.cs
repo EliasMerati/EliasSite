@@ -2,6 +2,7 @@
 using Elias.Data.Context;
 using Elias.Data.DTOs.SkillDto;
 using Elias.Data.Entities.Skills;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
@@ -45,6 +46,15 @@ namespace Elias.Application.Services
                 SkillGroupName = sg.SkillGroupName,
                 Id = sg.Id,
             }).AsNoTracking().ToList();
+        }
+
+        public List<SelectListItem> GetSkillGroup()
+        {
+            return _db.SkillGroups.Select(sg => new SelectListItem()
+            {
+                Text = sg.SkillGroupName,
+                Value = sg.Id.ToString(),
+            }).ToList();
         }
 
         public bool IsSkillGroupExist()

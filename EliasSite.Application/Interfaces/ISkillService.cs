@@ -9,7 +9,7 @@ namespace Elias.Application.Interfaces
         List<SkillDto> GetSkillList();
         List<SkillDto> GetSkillListBySkillGroup(int SkillGroupId);
         Task UpdateSkill(Skill skill);
-        Task CreateSkill(SkillDto skill);
+        Task CreateSkill(Skill skill);
         bool IsSkillExist();
     }
 }
