@@ -22,6 +22,12 @@ namespace Elias.Application.Services
             await _db.SaveChangesAsync();
         }
 
+        public async Task DeleteSkill(Skill skill)
+        {
+            _db.Remove(skill);
+            await _db.SaveChangesAsync();
+        }
+
         public async Task<Skill> FindSkillById(int id)
         {
             return await _db.Skills.FindAsync(id);
@@ -30,7 +36,7 @@ namespace Elias.Application.Services
         public List<SkillDto> GetSkillList()
         {
             return _db.Skills
-                .Include(s=>s.SkillGroup)
+                .Include(s => s.SkillGroup)
                 .Select(s => new SkillDto
                 {
                     Id = s.Id,
