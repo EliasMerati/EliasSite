@@ -18,5 +18,11 @@ namespace Elias.Admin.Pages.Education
         public void OnGet()
         {
         }
+
+        public async Task<IActionResult> OnPost()
+        {
+            await _educationService.CreateEducation(education);
+            return RedirectToPage("Index");
+        }
     }
 }

@@ -1,4 +1,56 @@
-﻿@page
+﻿@page "{Id}"
 @model Elias.Admin.Pages.Education.UpdateEducationModel
 @{
+    ViewData["Title"] = "ویرایش تحصیلات ";
 }
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">ویرایش تحصیلات </h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-page="UpdateEducation" method="post">
+                    <input type="hidden" asp-for="education.Id" />
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            اطلاعات تحصیلات
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>موضوع تحصیل</label>
+                                <input type="text" asp-for="education.EducationCertificate" class="form-control">
+                                <span asp-validation-for="education.EducationCertificate"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>تازیخ تحصیل</label>
+                                <input type="text" asp-for="education.Since" class="form-control">
+                                <span asp-validation-for="education.Since"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>توضیحات</label>
+                                <input type="text" asp-for="education.Description" class="form-control">
+                                <span asp-validation-for="education.Description"></span>
+                            </div>
+                            <button type="submit" class="btn btn-warning">ویرایش تحصیلات </button>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.col-lg-4 -->
+
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
