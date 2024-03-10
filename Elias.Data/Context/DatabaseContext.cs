@@ -1,5 +1,6 @@
-﻿using Elias.Common;
-using Elias.Data.Entities;
+﻿using Elias.Data.Entities;
+using Elias.Data.Entities.Education;
+using Elias.Data.Entities.Experience;
 using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ namespace Elias.Data.Context
         public DbSet<User> Users { get; set; }
         public DbSet<SkillGroup> SkillGroups { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<Education> Educations { get; set; }
 
         private void SeedData(ModelBuilder modelBuilder)
         {
@@ -31,16 +34,16 @@ namespace Elias.Data.Context
                    Email = "elias.merati@gmail.com",
                    Password = "20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70",
                    Ostan = "خراسان رضوی",
-                   UserImage="Null",
-                   City ="نیشابور",
-                   Address="خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
-                   ShortDescription="برنامه نویس دات نت با بیش از 5 سال سابقه ی برنامه نویسی وب و دسکتاپ",
-                   MainDescription= "با بیش از 5 سال تجربه در کدنویسی و توسعه ی برنامه های NET. من یک برنامه نویس هوشمند و خلاق هستم.من مسلط به زبان برنامه نویسی #C هستم و توانایی توسعه ی برنامه های تحت وب و دسکتاپ را دارم. من در ایجاد برنامه های کاربردی و کیفیت بالا تخصص دارم و توانایی مشارکت در تیم را به خوبی میدانم. همچنین من با استفاده از فریمورک های مختلفی مانند  ASP .NET MVC,ASP .NET,ASP.NET CORE, ASP.NET RAZORPAGES آشنایی کامل دارم.من متعهد به اهداف شرکت و ارا یه ی راه حل های برتر هستم.",
-                   MainSkill= ".Net Developer",
-                   Skill= "C# , Asp .Net MVC , Asp .Net RazorPages , Asp .Net CoreMVC , Blazor",
-                   GitHub= "EliasMerati",
-                   LinkedIn= "elias-merati",
-                   PhoneNumber="09223610626",
+                   UserImage = "Null",
+                   City = "نیشابور",
+                   Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
+                   ShortDescription = "برنامه نویس دات نت با بیش از 5 سال سابقه ی برنامه نویسی وب و دسکتاپ",
+                   MainDescription = "با بیش از 5 سال تجربه در کدنویسی و توسعه ی برنامه های NET. من یک برنامه نویس هوشمند و خلاق هستم.من مسلط به زبان برنامه نویسی #C هستم و توانایی توسعه ی برنامه های تحت وب و دسکتاپ را دارم. من در ایجاد برنامه های کاربردی و کیفیت بالا تخصص دارم و توانایی مشارکت در تیم را به خوبی میدانم. همچنین من با استفاده از فریمورک های مختلفی مانند  ASP .NET MVC,ASP .NET,ASP.NET CORE, ASP.NET RAZORPAGES آشنایی کامل دارم.من متعهد به اهداف شرکت و ارا یه ی راه حل های برتر هستم.",
+                   MainSkill = ".Net Developer",
+                   Skill = "C# , Asp .Net MVC , Asp .Net RazorPages , Asp .Net CoreMVC , Blazor",
+                   GitHub = "EliasMerati",
+                   LinkedIn = "elias-merati",
+                   PhoneNumber = "09223610626",
                    Skype = "Elias Merati",
                    IsActive = true,
                });
@@ -54,5 +57,5 @@ namespace Elias.Data.Context
         }
     }
 
-    
+
 }

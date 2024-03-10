@@ -10,6 +10,8 @@ namespace Elias.Admin.Configuration
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ISkillGroupService, SkillGroupService>();
             services.AddScoped<ISkillService, SkillService>();
+            services.AddScoped<IEducationService, EducationService>();
+            services.AddScoped<IExperienceService, ExperienceService>();
         }
     }
 }
