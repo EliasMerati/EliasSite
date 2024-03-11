@@ -44,6 +44,7 @@ namespace Elias.Application.Services
             return _db.Experiences
                 .Select(x => new ExperienceDto()
                 {
+                    Id = x.Id,
                     Description = x.Description,
                     ExperienceDate = x.ExperienceDate,
                     ExperienceSubject = x.ExperienceSubject,

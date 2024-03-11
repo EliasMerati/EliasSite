@@ -39,6 +39,7 @@ namespace Elias.Application.Services
             return _db.Educations
                 .Select(d => new EducationDto()
                 {
+                    Id = d.Id,
                     Description = d.Description,
                     EducationCertificate = d.EducationCertificate,
                     Since = d.Since,
