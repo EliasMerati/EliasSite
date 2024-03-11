@@ -1,4 +1,5 @@
 ﻿using Elias.Data.Entities;
+using Elias.Data.Entities.Certificate;
 using Elias.Data.Entities.Education;
 using Elias.Data.Entities.Experience;
 using Elias.Data.Entities.Skills;
@@ -18,6 +19,7 @@ namespace Elias.Data.Context
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
 
         private void SeedData(ModelBuilder modelBuilder)
         {

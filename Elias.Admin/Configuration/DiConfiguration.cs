@@ -12,6 +12,7 @@ namespace Elias.Admin.Configuration
             services.AddScoped<ISkillService, SkillService>();
             services.AddScoped<IEducationService, EducationService>();
             services.AddScoped<IExperienceService, ExperienceService>();
+            services.AddScoped<ICertificateService, CertificateService>();
         }
     }
 }
