@@ -314,6 +314,14 @@ namespace Elias.Application.Services
                 UserImage = u.UserImage,
             }).SingleAsync();
         }
+
+        public Task<ResumehDto> GetResumeh()
+        {
+            return _db.Users.Select(r => new ResumehDto()
+            {
+                Resumeh = r.Resumeh,
+            }).SingleAsync();
+        }
         #endregion
 
     }

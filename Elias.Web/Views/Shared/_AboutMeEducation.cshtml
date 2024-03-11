@@ -1,4 +1,9 @@
-﻿
+﻿@using Elias.Application.Interfaces
+@using Elias.Data.DTOs
+@inject IEducationService _education
+@{
+    List<EducationDto> education = _education.GetEducationList();
+}
 <div class="row mb-5 mt-6">
     <div class="col">
         <h6 class="font-weight-700  mb-0 text-uppercase mb-2">تحصیلات</h6>
@@ -29,27 +34,17 @@
                 </div>
             </div>
             <div class=" pt-7">
-                <div class="timeline-content">
-                    <div class="mb-1">
-                        <h6 class="font-weight-600 font-size-15 mb-1">مدرک کارشناسی طراحی  </h6>
-                        <div class="font-size-13 text-dark mb-1"><i class="fa fa-calendar mr-2 text-muted"></i>خرداد 1395 - اردیبهشت 1399</div>
+                @foreach (var item in education)
+                {
+                    <div class="timeline-content">
+                        <div class="mb-1">
+                            <h6 class="font-weight-600 font-size-15 mb-1">@item.EducationCertificate</h6>
+                            <div class="font-size-13 text-dark mb-1"><i class="fa fa-calendar mr-2 text-muted"></i>@item.Since</div>
+                        </div>
+                        <p class=" mb-0">@item.Description
                     </div>
-                    <p class=" mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                </div>
-                <div class="timeline-content">
-                    <div class="mb-1">
-                        <h6 class="font-weight-600 font-size-15 mb-1">مدرک کاردانی طراحی  </h6>
-                        <div class="font-size-13 text-dark mb-1"><i class="fa fa-calendar mr-2 text-muted"></i>خرداد 1395 - اردیبهشت 1399</div>
-                    </div>
-                    <p class=" mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                </div>
-                <div class="timeline-content">
-                    <div class="mb-1">
-                        <h6 class="font-weight-600 font-size-15 mb-1">مدرک کارشناسی نرم افزار  </h6>
-                        <div class="font-size-13 text-dark mb-1"><i class="fa fa-calendar mr-2 text-muted"></i>تیر 1390 - آبان 1395</div>
-                    </div>
-                    <p class=" mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت
-                </div>
+                }
+
             </div>
         </div>
     </div>

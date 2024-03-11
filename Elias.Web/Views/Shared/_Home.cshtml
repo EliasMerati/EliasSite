@@ -3,6 +3,7 @@
 @inject IUserService _User
 @{
     MainInfoDto Main = await _User.GetMainInfo();
+    ResumehDto resumeh = await _User.GetResumeh();
 }
 
 <section id="home" class="shadow bg-light radius-2 padding-dy text-center ">
@@ -26,7 +27,7 @@
             <hr class="divider divider-lg divider-center ">
         </div>
         <div class="col-md-6 text-left mb-2 mb-lg-0">
-            <a class="float-left" href="#">
+            <a class="float-left" href="/Resumeh/@resumeh.Resumeh" download>
                 <div class="media  align-items-center">
                     <div class="outer radius-2 mr-3">
                         <div class="ui-icon ui-icon-md inner ">
