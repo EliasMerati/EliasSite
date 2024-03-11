@@ -29,9 +29,9 @@ namespace Elias.Application.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task<Education> FindEducationById(int id)
+        public async Task<Education> FindEducationById(int Id)
         {
-            return await _db.Educations.FindAsync(id);
+            return await _db.Educations.FindAsync(Id);
         }
 
         public List<EducationDto> GetEducationList()

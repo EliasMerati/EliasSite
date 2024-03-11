@@ -15,9 +15,12 @@ namespace Elias.Admin.Pages.Experience
         #endregion
         [BindProperty]
         public Elias.Data.Entities.Experience.Experience experience { get; set; }
-        public async void OnGet(int Id)
+        public async Task<IActionResult> OnGet(int Id)
         {
             experience = await _experienceService.FindExperienceById(Id);
+            if (experience == null)
+                return NotFound();
+            return Page();
         }
 
         public async Task<IActionResult> OnPost()

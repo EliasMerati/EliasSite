@@ -15,9 +15,12 @@ namespace Elias.Admin.Pages.Education
         #endregion
         [BindProperty]
         public Elias.Data.Entities.Education.Education education { get; set; }
-        public async void OnGet(int Id)
+        public async Task<IActionResult> OnGet(int Id)
         {
             education = await _educationService.FindEducationById(Id);
+            if (education == null)
+                return NotFound();
+            return Page();
         }
 
         public async Task<IActionResult> OnPost()
