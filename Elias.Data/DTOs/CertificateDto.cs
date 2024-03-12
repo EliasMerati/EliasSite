@@ -23,6 +23,7 @@ namespace Elias.Data.DTOs
         public string CertificateID { get; set; }
 
         [Display(Name = "عکس مدرک")]
-        public IFormFile CertificateImage { get; set; }
+        public string CertificateImage { get; set; }
+
     }
 }

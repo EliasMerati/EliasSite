@@ -46,6 +46,7 @@ namespace Elias.Application.Services
                     CertificateDate = c.CertificateDate,
                     CertificateID = c.CertificateID,
                     CertificateName = c.CertificateName,
+                    CertificateImage = c.CertificateImage,
                     Id = c.Id,
                 }).AsNoTracking().ToList();
         }

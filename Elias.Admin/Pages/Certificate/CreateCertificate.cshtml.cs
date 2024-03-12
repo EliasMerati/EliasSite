@@ -14,9 +14,15 @@ namespace Elias.Admin.Pages.Certificate
         }
         #endregion
         [BindProperty]
-        public Elias.Data.DTOs.CertificateDto certificate { get; set; }
+        public Data.Entities.Certificate.Certificate certificate { get; set; }
         public void OnGet()
         {
+        }
+
+        public async Task<IActionResult> OnPost(IFormFile ImgCertificate)
+        {
+           await _certificateService.CreateCertificate(certificate, ImgCertificate);
+            return RedirectToPage("Index");
         }
     }
 }
