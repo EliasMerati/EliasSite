@@ -1,4 +1,46 @@
 ﻿@page
+@using Elias.Application.Interfaces
 @model Elias.Admin.Pages.Certificate.IndexModel
 @{
+    ViewData["Title"] = "لیست تحصیلات";
 }
+@inject ICertificateService certificateService
+<div class="box-body">
+    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+            <div class="col-sm-12">
+                <div class="col-md-12" style="margin:10px 0;">
+                    <a asp-page="CreateEducation" class="btn btn-success">افزودن تحصیلات جدید</a>
+                </div>
+                <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr role="row">
+                            <th>عکس مدرک</th>
+                            <th>نام مدرک</th>
+                            <th>تاریخ مدرک</th>
+                            <th>سریال مدرک</th>
+                            <th>دستورات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (educationService.IsEducationExist())
+                        {
+                            @foreach (var item in Model.educations)
+                            {
+                                <tr role="row" class="even">
+                                    <td>@item.EducationCertificate</td>
+                                    <td>@item.Since</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <a asp-page="UpdateEducation" asp-route-Id="@item.Id" class="btn btn-warning btn-sm">ویرایش</a>
+                                        <a asp-page="RemoveEducation" asp-route-Id="@item.Id" class="btn btn-danger btn-sm">حذف</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
