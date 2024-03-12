@@ -1,6 +1,7 @@
 ﻿using Elias.Application.Interfaces;
 using Elias.Common;
 using Elias.Data.Context;
+using Elias.Data.DTOs;
 using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
 using Microsoft.AspNetCore.Hosting.Server;
@@ -321,6 +322,19 @@ namespace Elias.Application.Services
             {
                 Resumeh = r.Resumeh,
             }).SingleAsync();
+        }
+
+        public async Task<ContactMeAddressDto> GetContactMeAddressInfo()
+        {
+            return _db.Users.Select(u => new ContactMeAddressDto()
+            {
+                Address = u.Address,
+                City = u.City,
+                Email = u.Email,
+                Ostan = u.Ostan,
+                PhoneNumber = u.PhoneNumber,
+                Skype = u.Skype,
+            }).AsNoTracking().Single();
         }
         #endregion
 

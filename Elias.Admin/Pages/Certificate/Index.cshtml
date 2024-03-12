@@ -15,7 +15,6 @@
                 <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr role="row">
-                            <th>عکس مدرک</th>
                             <th>نام مدرک</th>
                             <th>تاریخ مدرک</th>
                             <th>سریال مدرک</th>
@@ -28,9 +27,6 @@
                             @foreach (var item in Model.certificates)
                             {
                                 <tr role="row" class="even">
-                                    <td>
-                                        <img src="EliasSite/Elias.Web/Certificate/@item.CertificateImage" class="thumbnail" style="max-height:100px;" />
-                                    </td>
                                     <td>@item.CertificateName</td>
                                     <td>@item.CertificateDate</td>
                                     <td>@item.CertificateID</td>

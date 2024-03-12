@@ -1,4 +1,5 @@
-﻿using Elias.Data.DTOs.UserDto;
+﻿using Elias.Data.DTOs;
+using Elias.Data.DTOs.UserDto;
 using Elias.Data.Entities;
 using Microsoft.AspNetCore.Http;
 
@@ -22,6 +23,7 @@ namespace Elias.Application.Interfaces
         Task<SocialDto> GetSocialInfo();
         Task<MainInfoDto> GetMainInfo();
         Task<HeaderDto> GetHeaderInfo();
+        Task<ContactMeAddressDto> GetContactMeAddressInfo();
         Task<ResumehDto> GetResumeh();
     }
 }

@@ -7,6 +7,6 @@ namespace Elias.Data.Entities.Certificate
         public string CertificateName { get; set; }
         public string CertificateDate { get; set; }
         public string CertificateID { get; set; }
-        public string CertificateImage { get; set; }
+        public string? CertificateImage { get; set; }
     }
 }

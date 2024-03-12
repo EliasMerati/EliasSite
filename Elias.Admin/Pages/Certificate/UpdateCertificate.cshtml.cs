@@ -15,8 +15,20 @@ namespace Elias.Admin.Pages.Certificate
         #endregion
         [BindProperty]
         public Elias.Data.Entities.Certificate.Certificate certificate { get; set; }
-        public void OnGet()
+        public async Task<IActionResult> OnGet(int Id)
         {
+            certificate = await _certificateService.FindCertificateById(Id);
+            if (certificate == null)
+            {
+                return NotFound();
+            }
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPost(IFormFile ImgCertificate)
+        {
+            await _certificateService.UpdateCertificate(certificate, ImgCertificate);
+            return RedirectToPage("Index");
         }
     }
 }

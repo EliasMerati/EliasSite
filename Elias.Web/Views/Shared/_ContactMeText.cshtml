@@ -1,0 +1,42 @@
+﻿<form class="contact-form" method="post" action="FOXEVCARD/send.php">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control  h-100 " placeholder="نام" value="" id="name" name="name" type="text">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control  h-100 " placeholder="ایمیل" value="" id="email" name="email" type="email">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control  h-100 " value="" id="compagny" name="compagny" placeholder="شرکت" type="text">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control  h-100 " value="" id="subject" name="subject" placeholder="موضوع" type="text">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="outer radius-2 mb-3">
+                <textarea class="radius-2 inner form-control   resize-n " name="message" placeholder="پیام شما" id="message" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="outer radius-2 d-inline-block text-center">
+                <a class="send inner radius-2 d-block py-2 px-4 font-size-15 font-weight-500" href="#">
+                    ارسال پیام
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+<div id="success">
+    <h2>پیام شما ارسال شد، ممنون از زمانی که گذاشتید.</h2>
+</div>
+<div id="error">
+    <h2>متاسفیم پیام شما ارسال نشد.</h2>
+</div>

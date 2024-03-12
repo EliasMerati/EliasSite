@@ -60,18 +60,11 @@ namespace Elias.Application.Services
         {
             if (Image is not null)
             {
-                if (certificate.CertificateImage is not null)
+                if (certificate.CertificateImage is null)
                 {
-                    string DeleteDemoPath = "";
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
-                    if (File.Exists(DeleteDemoPath))
-                    {
-                        File.Delete(DeleteDemoPath);
-                    }
-
                     certificate.CertificateImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
-                    using (var stream = new FileStream(DeleteDemoPath, FileMode.CreateNew))
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
                         Image.CopyTo(stream);
@@ -79,10 +72,15 @@ namespace Elias.Application.Services
                 }
                 else
                 {
-                    string DeleteDemoPath = "";
+                    var DeleteResumehPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
+                    if (File.Exists(DeleteResumehPath))
+                    {
+                        File.Delete(DeleteResumehPath);
+                    }
+
                     certificate.CertificateImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
-                    using (var stream = new FileStream(DeleteDemoPath, FileMode.CreateNew))
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/Certificate/", certificate.CertificateImage);
+                    using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
                         Image.CopyTo(stream);
