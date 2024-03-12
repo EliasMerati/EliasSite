@@ -9,7 +9,7 @@ namespace Elias.Application.Interfaces
         Task<Certificate> FindCertificateById(int id);
         List<CertificateDto> GetCertificateList();
         Task UpdateCertificate(Certificate certificate, IFormFile Img);
-        Task CreateCertificate(CertificateDto certificate, IFormFile Img);
+        Task CreateCertificate(Certificate certificate, IFormFile Img);
         Task DeleteCertificate(Certificate certificate);
         bool IsCertificateExist();
     }
