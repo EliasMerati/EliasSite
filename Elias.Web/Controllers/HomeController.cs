@@ -30,6 +30,12 @@ namespace Elias.Web.Controllers
             return View();
         }
 
+        [Route("/ProjectSingle")]
+        public IActionResult ProjectSingle()
+        {
+            return View("_ProjectSingle");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
