@@ -2,6 +2,7 @@
 using Elias.Data.Entities.Certificate;
 using Elias.Data.Entities.Education;
 using Elias.Data.Entities.Experience;
+using Elias.Data.Entities.Portfolio;
 using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,9 @@ namespace Elias.Data.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<PortfolioGroup> PortfolioGroups { get; set; }
+        public DbSet<PortfolioImages> PortfolioImages { get; set; }
 
         private void SeedData(ModelBuilder modelBuilder)
         {
