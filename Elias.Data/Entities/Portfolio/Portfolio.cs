@@ -1,4 +1,5 @@
 ﻿using Elias.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Elias.Data.Entities.Portfolio
 {
@@ -15,6 +16,8 @@ namespace Elias.Data.Entities.Portfolio
 
         #region Navigation Property
         public ICollection<PortfolioImages> PortfolioImages { get; set; }
+
+        [ForeignKey(nameof(GroupId))]
         public PortfolioGroup PortfolioGroup { get; set; }
         #endregion
     }

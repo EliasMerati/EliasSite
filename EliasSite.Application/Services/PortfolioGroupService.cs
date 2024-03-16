@@ -2,6 +2,7 @@
 using Elias.Data.Context;
 using Elias.Data.DTOs.PortfolioDto;
 using Elias.Data.Entities.Portfolio;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Elias.Application.Services
@@ -56,6 +57,15 @@ namespace Elias.Application.Services
         {
             _db.Update(group);
             await _db.SaveChangesAsync();
+        }
+
+        public IList<SelectListItem> GetPortfolioGroup()
+        {
+            return _db.PortfolioGroups.Select(l => new SelectListItem()
+            {
+                Value = l.Id.ToString(),
+                Text = l.GroupName
+            }).AsNoTracking().ToList();
         }
     }
 }

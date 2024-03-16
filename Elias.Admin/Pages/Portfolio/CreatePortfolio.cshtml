@@ -1,0 +1,97 @@
+﻿@page
+@model Elias.Admin.Pages.Portfolio.CreatePortfolioModel
+@{
+    ViewData["Title"] = "ثبت نمونه کار جدید";
+}
+
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">ثبت نمونه کار جدید</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-page="CreatePortfolio" method="post" enctype="multipart/form-data">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            اطلاعات نمونه کار
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>نام مهارت</label>
+                                <input type="text" asp-for="portfolio.PortfolioName" class="form-control">
+                                <span asp-validation-for="portfolio.PortfolioName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>گروه نمونه کار</label>
+                                <select class="form-control" asp-for="portfolio.GroupId" asp-items="@(ViewData["Groups"] as SelectList)"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>نام گروه</label>
+                                <input type="text" asp-for="portfolio.PortfolioFamily" class="form-control">
+                                <span asp-validation-for="portfolio.PortfolioFamily"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>نام کارفرما</label>
+                                <input type="text" asp-for="portfolio.CustomerName" class="form-control">
+                                <span asp-validation-for="portfolio.CustomerName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>تاریخ انجام</label>
+                                <input type="text" asp-for="portfolio.PortfolioDate" class="form-control">
+                                <span asp-validation-for="portfolio.CreateDate"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>آدرس سایت</label>
+                                <input type="text" asp-for="portfolio.PortfolioLink" class="form-control">
+                                <span asp-validation-for="portfolio.PortfolioLink"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>بررسی نمونه کار</label>
+                                <textarea type="text" asp-for="portfolio.Description" rows="10" class="form-control"></textarea>
+                                <span asp-validation-for="portfolio.Description"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>عکس</label>
+                                <input type="file" name="Image" id="UserImage" asp-for="portfolio.PortfolioImages" class="form-control">
+                                <span asp-validation-for="portfolio.PortfolioImages"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>سایر عکس ها</label>
+                                <input type="file" name="Images" id="UserImage" asp-for="portfolio.PortfolioImages" class="form-control" multiple>
+                                <span asp-validation-for="portfolio.PortfolioImages"></span>
+                            </div>
+                            <button type="submit" class="btn btn-success">ثبت نمونه کار جدید</button>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.col-lg-4 -->
+
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+@section Scripts {
+
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('portfolio_Description', {
+            customConfig: '/js/Config.js'
+        });
+    </script>
+
+}

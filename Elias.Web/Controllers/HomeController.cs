@@ -1,4 +1,5 @@
-﻿using Elias.Web.Models;
+﻿using Elias.Application.Interfaces;
+using Elias.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,10 +8,12 @@ namespace Elias.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPortfolioService _portfolioService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IPortfolioService portfolioService)
         {
             _logger = logger;
+            _portfolioService = portfolioService;
         }
 
         
@@ -30,10 +33,11 @@ namespace Elias.Web.Controllers
             return View();
         }
 
-        [Route("/ProjectSingle")]
-        public IActionResult ProjectSingle()
+        [Route("/ProjectSingle/{Id}")]
+        public IActionResult ProjectSingle(int Id)
         {
-            return View("_ProjectSingle");
+            var portfolio = _portfolioService.FindPortfolioById(Id);
+            return View("_ProjectSingle",portfolio);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

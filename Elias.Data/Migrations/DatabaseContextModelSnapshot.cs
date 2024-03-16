@@ -143,9 +143,6 @@ namespace Elias.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PortfolioGroupId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PortfolioLink")
                         .HasColumnType("nvarchar(max)");
 
@@ -155,7 +152,7 @@ namespace Elias.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PortfolioGroupId");
+                    b.HasIndex("GroupId");
 
                     b.ToTable("Portfolios");
                 });
@@ -191,12 +188,13 @@ namespace Elias.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Images")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("PortfolioId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PortfolioImageName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.HasKey("Id");
 
@@ -335,7 +333,7 @@ namespace Elias.Data.Migrations
                             Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
                             BirthDay = "1362/06/30",
                             City = "نیشابور",
-                            CreateDate = new DateTime(2024, 3, 14, 0, 5, 41, 163, DateTimeKind.Local).AddTicks(7673),
+                            CreateDate = new DateTime(2024, 3, 15, 23, 55, 58, 292, DateTimeKind.Local).AddTicks(2463),
                             Email = "elias.merati@gmail.com",
                             GitHub = "EliasMerati",
                             IsActive = true,
@@ -357,7 +355,7 @@ namespace Elias.Data.Migrations
                 {
                     b.HasOne("Elias.Data.Entities.Portfolio.PortfolioGroup", "PortfolioGroup")
                         .WithMany("Portfolios")
-                        .HasForeignKey("PortfolioGroupId")
+                        .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

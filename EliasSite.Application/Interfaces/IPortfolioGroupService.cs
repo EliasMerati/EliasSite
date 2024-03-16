@@ -1,5 +1,6 @@
 ﻿using Elias.Data.DTOs.PortfolioDto;
 using Elias.Data.Entities.Portfolio;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Application.Interfaces
 {
@@ -11,5 +12,6 @@ namespace Elias.Application.Interfaces
         Task CreatePortfolioGroup(PortfolioGroup group);
         Task DeletePortfolioGroup(PortfolioGroup group);
         bool IsPortfolioGroupExist();
+        IList<SelectListItem> GetPortfolioGroup();
     }
 }
