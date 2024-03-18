@@ -1,4 +1,47 @@
-﻿@page
+﻿@page "{Id}"
 @model Elias.Admin.Pages.BlogGroup.UpdateBlogGroupModel
 @{
+    ViewData["Title"] = "ویرایش گروه بلاگ ";
 }
+
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">ویرایش گروه بلاگ </h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-page="CreateBlogGroup" method="post">
+                    <input type="hidden" asp-for="BlogGroup.Id" />
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            اطلاعات گروه بلاگ
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>نام گروه بلاگ</label>
+                                <input type="text" asp-for="BlogGroup.BlogGroupName" class="form-control">
+                                <span asp-validation-for="BlogGroup.BlogGroupName"></span>
+                            </div>
+                            <button type="submit" class="btn btn-warning">ویرایش گروه </button>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.col-lg-4 -->
+
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
