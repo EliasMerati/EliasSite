@@ -33,11 +33,12 @@ namespace Elias.Application.Services
 
         public async Task DeletePortfolio(Portfolio portfolio)
         {
+            await DeletePortfolioPic(portfolio);
             _db.Remove(portfolio);
             await _db.SaveChangesAsync();
         }
 
-        public  Portfolio FindPortfolioById(int id)
+        public Portfolio FindPortfolioById(int id)
         {
             return _db.Portfolios.Find(id);
         }
@@ -101,26 +102,35 @@ namespace Elias.Application.Services
                 }
             }
         }
+        private async Task DeletePortfolioPic(Portfolio portfolio)
+        {
+            string DeleteDemoPath = "";
+            DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/PortfolioImage/", portfolio.MainPicure);
+            if (File.Exists(DeleteDemoPath))
+            {
+                File.Delete(DeleteDemoPath);
+            }
+        }
 
-        public  void SetMultiImageForPortfolio(List<IFormFile> images, Portfolio portfolio)
+        public void SetMultiImageForPortfolio(List<IFormFile> images, Portfolio portfolio)
         {
             int portfolioId = GetPortfolioForPortfolioId(portfolio);
             if (images.Count > 0)
             {
                 foreach (var item in images)
                 {
-                    
-                        string uploads = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/PortfolioMoreImages/");
-                    
-                        var extension = Path.GetExtension(item.FileName);
-                        var dynamicFileName = GenerateCode.GenerateUniqueCode() + extension;
-                        using (var filesStream = new FileStream(Path.Combine(uploads, dynamicFileName), FileMode.Create))
-                        {
-                            item.CopyTo(filesStream);
-                        }
+
+                    string uploads = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/PortfolioMoreImages/");
+
+                    var extension = Path.GetExtension(item.FileName);
+                    var dynamicFileName = GenerateCode.GenerateUniqueCode() + extension;
+                    using (var filesStream = new FileStream(Path.Combine(uploads, dynamicFileName), FileMode.Create))
+                    {
+                        item.CopyTo(filesStream);
+                    }
 
                     _db.PortfolioImages.Add(new PortfolioImages { PortfolioId = portfolioId, PortfolioImageName = dynamicFileName });
-                    _db.SaveChanges();  
+                    _db.SaveChanges();
                 }
                 _db.SaveChanges();
             }
@@ -129,20 +139,20 @@ namespace Elias.Application.Services
         public int GetPortfolioForPortfolioId(Portfolio portfolio)
         {
             _db.Add(portfolio);
-             _db.SaveChanges();
+            _db.SaveChanges();
             return portfolio.Id;
         }
 
-        public List< GetPortfolioForShowByGroupIdDto> GetPortfolio()
+        public List<GetPortfolioForShowByGroupIdDto> GetPortfolio()
         {
             return _db.Portfolios
-                .Include(p=>p.PortfolioGroup)
+                .Include(p => p.PortfolioGroup)
                 .Select(p => new GetPortfolioForShowByGroupIdDto()
                 {
-                    Id = p.Id,  
+                    Id = p.Id,
                     GroupName = p.PortfolioGroup.GroupName,
                     MainPicure = p.MainPicure,
-                }).AsNoTracking().ToList();  
+                }).AsNoTracking().ToList();
         }
 
         public Portfolio GetEntirePortfoWithImagesAndGroupsById(int id)
