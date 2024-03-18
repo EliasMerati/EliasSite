@@ -15,6 +15,10 @@ namespace Elias.Admin.Configuration
             services.AddScoped<ICertificateService, CertificateService>();
             services.AddScoped<IPortfolioService, PortfolioService>();
             services.AddScoped<IPortfolioGroupService, PortfolioGroupService>();
+            services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IBlogGroupService, BlogGroupService>();
+            services.AddScoped<IBlogCommentService, BlogCommentService>();
+            
         }
     }
 }

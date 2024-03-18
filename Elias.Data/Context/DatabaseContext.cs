@@ -1,4 +1,5 @@
 ﻿using Elias.Data.Entities;
+using Elias.Data.Entities.Blog;
 using Elias.Data.Entities.Certificate;
 using Elias.Data.Entities.Education;
 using Elias.Data.Entities.Experience;
@@ -15,15 +16,39 @@ namespace Elias.Data.Context
 
         }
 
+        #region User
         public DbSet<User> Users { get; set; }
+        #endregion
+
+        #region Skill
         public DbSet<SkillGroup> SkillGroups { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        #endregion
+
+        #region Experience
         public DbSet<Experience> Experiences { get; set; }
+        #endregion
+
+        #region Education
         public DbSet<Education> Educations { get; set; }
+        #endregion
+
+        #region Certificate
         public DbSet<Certificate> Certificates { get; set; }
+        #endregion
+
+        #region Portfolio
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<PortfolioGroup> PortfolioGroups { get; set; }
         public DbSet<PortfolioImages> PortfolioImages { get; set; }
+        #endregion
+
+        #region Blog
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogGroup> BlogGroups { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
+        #endregion
+
 
         private void SeedData(ModelBuilder modelBuilder)
         {
