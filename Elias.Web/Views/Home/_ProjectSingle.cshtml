@@ -55,21 +55,23 @@
         <div class="row align-items-center justify-content-center mt-5">
             <div class="col-md-10">
                 <div class="mb-6 item">
-                    <a class="radius-1 shadow-inner hover-effect d-block venobox vbox-item" data-overlay="rgba(52,58,64,.6)" href="assets/img/portfolio/large-1.jpg">
-                        <span class="hover-effect-container">
-                            <span class="hover-effect-icon ">
-                                <span class=" fas fa-eye top-icon "></span>
+
+                    @foreach (var item in Model.PortfolioImages)
+                    {
+                        <a class="radius-1 shadow-inner hover-effect d-block venobox vbox-item" data-overlay="rgba(52,58,64,.6)" href="/PortfolioMoreImages/@item.PortfolioImageName">
+                            <span class="hover-effect-container">
+                                <span class="hover-effect-icon ">
+                                    <span class=" fas fa-eye top-icon "></span>
+                                </span>
                             </span>
-                        </span>
-                        <div class="  p-2  ">
-                            <div class="shadow radius-1">
-                                @foreach (var item in Model.PortfolioImages)
-                                {
+                            <div class="  p-2  ">
+                                <div class="shadow radius-1">
                                     <img class="img-fluid radius-1" src="/PortfolioMoreImages/@item.PortfolioImageName" alt="@item.PortfolioImageName">
-                                }
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    }
+
                 </div>
             </div>
         </div>
@@ -88,7 +90,7 @@
             <div class="col-md-12 mt-6 pt-6 mb-6">
                 <hr class="divider divider-lg divider-center ">
             </div>
-            @if (Model.PortfolioLink is not null)
+            @if (!string.IsNullOrWhiteSpace(Model.PortfolioLink))
             {
                 <div class="col-md-6 text-left mb-2 mb-lg-0">
                     <a class="float-left" href="@Model.PortfolioLink">
@@ -103,16 +105,16 @@
                                         <path d="M512.4,241.4c-4-5.7-98.4-139-251.4-139S13.5,235.7,9.6,241.4c-6.1,8.8-6.1,20.4,0,29.2
                                                 c4,5.7,98.4,139,251.4,139s247.5-133.3,251.4-139C518.5,261.8,518.5,250.2,512.4,241.4z M261,384C119.6,384,30.6,256,30.6,256
                                                 s89-128,230.4-128s230.4,128,230.4,128S402.4,384,261,384z" />
-                                                              </g>
-                                                           </g>
+                                                                  </g>
+                                                               </g>
                                         <g>
                                         <g>
                                         <path d="M261,153.6c-56.6,0-102.4,45.8-102.4,102.4S204.4,358.4,261,358.4S363.4,312.6,363.4,256
                                                 S317.5,153.6,261,153.6z M261,332.8c-42.4,0-76.8-34.4-76.8-76.8s34.4-76.8,76.8-76.8s76.8,34.4,76.8,76.8S303.4,332.8,261,332.8z
-                                                                    " />
-                                                              </g>
-                                                           </g>
-                                                        </svg>
+                                                                        " />
+                                                                  </g>
+                                                               </g>
+                                                            </svg>
                                     </div>
                                 </div>
                             </div>

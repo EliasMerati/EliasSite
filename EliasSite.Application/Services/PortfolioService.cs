@@ -26,9 +26,9 @@ namespace Elias.Application.Services
 
         public async Task CreatePortfolio(Portfolio portfolio, IFormFile Image, List<IFormFile> images)
         {
+            _db.Add(portfolio);
             await SetPortfolioPic(portfolio, Image);
             SetMultiImageForPortfolio(images, portfolio);
-            _db.Add(portfolio);
             await _db.SaveChangesAsync();
         }
 
@@ -40,10 +40,7 @@ namespace Elias.Application.Services
 
         public  Portfolio FindPortfolioById(int id)
         {
-            return  _db.Portfolios
-                .Include(p=>p.PortfolioGroup)
-                .Include(p => p.PortfolioImages)
-                .FirstOrDefault(p=>p.Id == id);
+            return _db.Portfolios.Find(id);
         }
 
         public List<GetPortfolioForIndex> GetPortfolioList()
@@ -65,9 +62,10 @@ namespace Elias.Application.Services
             return _db.Portfolios.Any();
         }
 
-        public async Task UpdatePortfolio(Portfolio portfolio)
+        public async Task UpdatePortfolio(Portfolio portfolio, IFormFile Image)
         {
             _db.Update(portfolio);
+            await SetPortfolioPic(portfolio, Image);
             await _db.SaveChangesAsync();
         }
 
@@ -107,7 +105,7 @@ namespace Elias.Application.Services
 
         public  void SetMultiImageForPortfolio(List<IFormFile> images, Portfolio portfolio)
         {
-            int portfolioId =  CreatePortfolioForPortfolioId(portfolio);
+            int portfolioId = GetPortfolioForPortfolioId(portfolio);
             if (images.Count > 0)
             {
                 foreach (var item in images)
@@ -122,7 +120,7 @@ namespace Elias.Application.Services
                             item.CopyTo(filesStream);
                         }
 
-                    _db.PortfolioImages.Add(new PortfolioImages { Id = portfolioId, PortfolioImageName = dynamicFileName });
+                    _db.PortfolioImages.Add(new PortfolioImages { PortfolioId = portfolioId, PortfolioImageName = dynamicFileName });
                     _db.SaveChanges();  
                 }
                 _db.SaveChanges();
@@ -130,7 +128,7 @@ namespace Elias.Application.Services
         }
 
 
-        public int CreatePortfolioForPortfolioId(Portfolio portfolio)
+        public int GetPortfolioForPortfolioId(Portfolio portfolio)
         {
             _db.Add(portfolio);
              _db.SaveChanges();
@@ -147,6 +145,14 @@ namespace Elias.Application.Services
                     GroupName = p.PortfolioGroup.GroupName,
                     MainPicure = p.MainPicure,
                 }).AsNoTracking().ToList();  
+        }
+
+        public Portfolio GetEntirePortfoWithImagesAndGroupsById(int id)
+        {
+            return _db.Portfolios
+               .Include(p => p.PortfolioGroup)
+               .Include(p => p.PortfolioImages)
+               .FirstOrDefault(p => p.Id == id);
         }
     }
 }
