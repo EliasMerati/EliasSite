@@ -23,7 +23,6 @@ namespace Elias.Application.Services
         #endregion
 
 
-
         public async Task CreatePortfolio(Portfolio portfolio, IFormFile Image, List<IFormFile> images)
         {
             _db.Add(portfolio);
@@ -126,7 +125,6 @@ namespace Elias.Application.Services
                 _db.SaveChanges();
             }
         }
-
 
         public int GetPortfolioForPortfolioId(Portfolio portfolio)
         {

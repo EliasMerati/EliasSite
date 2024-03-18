@@ -36,7 +36,7 @@ namespace Elias.Web.Controllers
         [Route("/ProjectSingle/{Id}")]
         public IActionResult ProjectSingle(int Id)
         {
-            var portfolio = _portfolioService.FindPortfolioById(Id);
+            var portfolio = _portfolioService.GetEntirePortfoWithImagesAndGroupsById(Id);
             return View("_ProjectSingle",portfolio);
         }
 
