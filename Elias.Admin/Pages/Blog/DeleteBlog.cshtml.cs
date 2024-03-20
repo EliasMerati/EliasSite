@@ -25,6 +25,7 @@ namespace Elias.Admin.Pages.Blog
             {
                 return NotFound();
             }
+            await _blogService.DeleteBlog(Blog);
             return RedirectToPage("Index");
         }
     }

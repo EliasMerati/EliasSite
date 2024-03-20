@@ -75,7 +75,7 @@ namespace Elias.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CommentId")
+                    b.Property<int>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<string>("CommentText")
@@ -87,7 +87,7 @@ namespace Elias.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommentId");
+                    b.HasIndex("BlogId");
 
                     b.ToTable("BlogComments");
                 });
@@ -423,7 +423,7 @@ namespace Elias.Data.Migrations
                             Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
                             BirthDay = "1362/06/30",
                             City = "نیشابور",
-                            CreateDate = new DateTime(2024, 3, 18, 22, 47, 22, 48, DateTimeKind.Local).AddTicks(1908),
+                            CreateDate = new DateTime(2024, 3, 20, 18, 19, 56, 514, DateTimeKind.Local).AddTicks(6252),
                             Email = "elias.merati@gmail.com",
                             GitHub = "EliasMerati",
                             IsActive = true,
@@ -456,7 +456,7 @@ namespace Elias.Data.Migrations
                 {
                     b.HasOne("Elias.Data.Entities.Blog.Blog", "Blog")
                         .WithMany("BlogComments")
-                        .HasForeignKey("CommentId")
+                        .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
