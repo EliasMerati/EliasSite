@@ -1,5 +1,6 @@
 ﻿using Elias.Data.DTOs.Blog;
 using Elias.Data.Entities.Blog;
+using Microsoft.AspNetCore.Http;
 
 namespace Elias.Application.Interfaces
 {
@@ -7,8 +8,8 @@ namespace Elias.Application.Interfaces
     {
         Task<Blog> FindBlogById(int id);
         List<BlogDto> GetBlogList();
-        Task UpdateBlog(Blog blog);
-        Task CreateBlog(Blog blog);
+        Task UpdateBlog(Blog blog, IFormFile Image);
+        Task CreateBlog(Blog blog, IFormFile Image);
         Task DeleteBlog(Blog blog);
         bool IsBlogExist();
     }

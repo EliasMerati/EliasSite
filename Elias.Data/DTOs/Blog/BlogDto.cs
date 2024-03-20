@@ -16,8 +16,10 @@ namespace Elias.Data.DTOs.Blog
     {
         public int Id { get; set; }
 
+        public int BlogGroupId { get; set; }
+
         [Display(Name = "گروه بلاگ")]
-        public int BlogGroup { get; set; }
+        public string BlogGroupName { get; set; }
 
         [Display(Name = "عنوان")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
