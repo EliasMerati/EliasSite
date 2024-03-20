@@ -47,7 +47,7 @@ namespace Elias.Application.Services
         public List<BlogDto> GetBlogList()
         {
             return _db.Blogs
-                     .Include(b => b.BlogGroup)
+                     .Include(b => b.Group)
                      .Select(b => new BlogDto()
                      {
                          Id = b.Id,

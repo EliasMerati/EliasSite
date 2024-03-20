@@ -1,5 +1,6 @@
 ﻿using Elias.Data.DTOs.Blog;
 using Elias.Data.Entities.Blog;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Application.Interfaces
 {
@@ -11,5 +12,6 @@ namespace Elias.Application.Interfaces
         Task CreateBlogGroup(BlogGroup blogGroup);
         Task DeleteBlogGroup(BlogGroup blogGroup);
         bool IsBlogGroupExist();
+        IList<SelectListItem> GetBlogGroup();
     }
 }

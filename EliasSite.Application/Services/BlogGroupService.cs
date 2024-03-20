@@ -2,6 +2,7 @@
 using Elias.Data.Context;
 using Elias.Data.DTOs.Blog;
 using Elias.Data.Entities.Blog;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Elias.Application.Services
@@ -42,6 +43,15 @@ namespace Elias.Application.Services
                     Id = bg.Id,
                     BlogGroupName = bg.BlogGroupName
                 }).AsNoTracking().ToList();  
+        }
+
+        public IList<SelectListItem> GetBlogGroup()
+        {
+            return _db.BlogGroups.Select(l => new SelectListItem()
+            {
+                Value = l.Id.ToString(),
+                Text = l.BlogGroupName
+            }).AsNoTracking().ToList();
         }
 
         public bool IsBlogGroupExist()

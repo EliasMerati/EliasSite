@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Certificate\" />
     <Folder Include="wwwroot\BlogImage\" />
+    <Folder Include="wwwroot\CKEditorsImage\" />
     <Folder Include="wwwroot\PortfolioMoreImages\" />
     <Folder Include="wwwroot\PortfolioImage\" />
     <Folder Include="wwwroot\ProfilePic\" />

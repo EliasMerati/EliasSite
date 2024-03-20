@@ -1,4 +1,5 @@
 ﻿using Elias.Application.Interfaces;
+using Elias.Common;
 using Elias.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -44,6 +45,29 @@ namespace Elias.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        [Route("file-upload")]
+        public IActionResult UploadImage(IFormFile upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            if (upload.Length <= 0) return null;
+
+            var fileName = GenerateCode.GenerateUniqueCode() + Path.GetExtension(upload.FileName).ToLower();
+
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(), "wwwroot/CKEditorsImage",
+                fileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                upload.CopyTo(stream);
+
+            }
+
+            var url = $"{"/CKEditorsImage/"}{fileName}";
+
+            return Json(new { uploaded = true, url });
         }
     }
 }
