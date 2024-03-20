@@ -41,5 +41,7 @@ namespace Elias.Data.DTOs.Blog
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
         [MaxLength(100)]
         public string BlogImage { get; set; }
+
+        public DateTime BlogDate { get; set; }
     }
 }

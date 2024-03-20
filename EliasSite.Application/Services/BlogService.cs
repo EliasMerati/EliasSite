@@ -58,6 +58,7 @@ namespace Elias.Application.Services
                          BlogSubject = b.BlogSubject,
                          BlogGroupId = b.Group.Id,
                          BlogGroupName = b.Group.BlogGroupName,
+                         BlogDate = b.CreateDate,
                      }).AsNoTracking()
                      .ToList();
         }
