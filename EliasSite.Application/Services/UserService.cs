@@ -305,23 +305,23 @@ namespace Elias.Application.Services
                 Skills = u.Skills,
             }).SingleAsync();
         }
-        public async Task<HeaderDto> GetHeaderInfo()
+        public HeaderDto GetHeaderInfo()
         {
-            return await _db.Users.Select(u => new HeaderDto()
+            return  _db.Users.Select(u => new HeaderDto()
             {
                 Familly = u.Familly,
                 Name = u.Name,
                 MainSkill = u.MainSkill,
                 UserImage = u.UserImage,
-            }).SingleAsync();
+            }).Single();
         }
 
-        public Task<ResumehDto> GetResumeh()
+        public ResumehDto GetResumeh()
         {
             return _db.Users.Select(r => new ResumehDto()
             {
                 Resumeh = r.Resumeh,
-            }).SingleAsync();
+            }).Single();
         }
 
         public async Task<ContactMeAddressDto> GetContactMeAddressInfo()

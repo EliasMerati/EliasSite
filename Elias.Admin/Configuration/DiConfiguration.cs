@@ -1,5 +1,6 @@
 ﻿using Elias.Application.Interfaces;
 using Elias.Application.Services;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Elias.Admin.Configuration
 {

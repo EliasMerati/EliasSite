@@ -10,11 +10,13 @@ namespace Elias.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IPortfolioService _portfolioService;
+        private readonly IBlogService _blogService;
 
-        public HomeController(ILogger<HomeController> logger,IPortfolioService portfolioService)
+        public HomeController(ILogger<HomeController> logger,IPortfolioService portfolioService,IBlogService blogService)
         {
             _logger = logger;
             _portfolioService = portfolioService;
+            _blogService = blogService;
         }
 
         
@@ -39,6 +41,13 @@ namespace Elias.Web.Controllers
         {
             var portfolio = _portfolioService.GetEntirePortfoWithImagesAndGroupsById(Id);
             return View("_ProjectSingle",portfolio);
+        }
+
+        [Route("/BlogSingle/{Id}")]
+        public IActionResult BlogSingle(int Id)
+        {
+            var blog = _blogService.FindBlogById(Id);
+            return View("_BlogSingle", blog);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

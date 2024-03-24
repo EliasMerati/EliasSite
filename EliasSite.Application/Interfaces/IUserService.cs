@@ -22,8 +22,8 @@ namespace Elias.Application.Interfaces
         Task<AboutMeInfoDto> GetAboutMeInfo();
         Task<SocialDto> GetSocialInfo();
         Task<MainInfoDto> GetMainInfo();
-        Task<HeaderDto> GetHeaderInfo();
+        HeaderDto GetHeaderInfo();
         Task<ContactMeAddressDto> GetContactMeAddressInfo();
-        Task<ResumehDto> GetResumeh();
+        ResumehDto GetResumeh();
     }
 }
