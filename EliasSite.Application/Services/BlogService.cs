@@ -117,5 +117,12 @@ namespace Elias.Application.Services
                 File.Delete(DeleteDemoPath);
             }
         }
+
+        public Blog GetEntireBlog(int id)
+        {
+            return _db.Blogs
+                .Include(b => b.Group)
+                .FirstOrDefault(b => b.Id == id);
+        }
     }
 }

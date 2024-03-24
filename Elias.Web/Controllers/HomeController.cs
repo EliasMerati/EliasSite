@@ -46,8 +46,8 @@ namespace Elias.Web.Controllers
         [Route("/BlogSingle/{Id}")]
         public IActionResult BlogSingle(int Id)
         {
-            var blog = _blogService.FindBlogById(Id);
-            return View("_BlogSingle", blog);
+            var Blog = _blogService.GetEntireBlog(Id);
+            return View("_BlogSingle", Blog);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -65,7 +65,7 @@ namespace Elias.Web.Controllers
             var fileName = GenerateCode.GenerateUniqueCode() + Path.GetExtension(upload.FileName).ToLower();
 
             var path = Path.Combine(
-                Directory.GetCurrentDirectory(), "wwwroot/CKEditorsImage",
+                Directory.GetCurrentDirectory(), "wwwroot/CKEditorsImage/",
                 fileName);
 
             using (var stream = new FileStream(path, FileMode.Create))

@@ -11,6 +11,7 @@ namespace Elias.Application.Interfaces
         Task UpdateBlog(Blog blog, IFormFile Image);
         Task CreateBlog(Blog blog, IFormFile Image);
         Task DeleteBlog(Blog blog);
+        Blog GetEntireBlog(int id);
         bool IsBlogExist();
     }
 }
