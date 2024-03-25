@@ -44,9 +44,25 @@ namespace Elias.Application.Services
             return await _db.Blogs.FindAsync(id);
         }
 
-        public List<BlogDto> GetBlogList()
+        public Tuple<List<BlogDto>, int> GetBlogList(int pageId = 1)
         {
-            return _db.Blogs
+            int skip = (pageId - 1) * 5;
+
+            int rowsCount = _db.Blogs
+                     .Include(b => b.Group)
+                     .Select(b => new BlogDto()
+                     {
+                         Id = b.Id,
+                         Author = b.Author,
+                         BlogDescription = b.BlogDescription,
+                         BlogImage = b.BlogImage,
+                         BlogShortDescription = b.BlogShortDescription,
+                         BlogSubject = b.BlogSubject,
+                         BlogGroupId = b.Group.Id,
+                         BlogGroupName = b.Group.BlogGroupName,
+                         BlogDate = b.CreateDate,
+                     }).Count() / 5;
+            var result = _db.Blogs
                      .Include(b => b.Group)
                      .Select(b => new BlogDto()
                      {
@@ -61,6 +77,8 @@ namespace Elias.Application.Services
                          BlogDate = b.CreateDate,
                      }).AsNoTracking()
                      .ToList();
+
+            return Tuple.Create(result, rowsCount);
         }
 
         public bool IsBlogExist()

@@ -7,7 +7,7 @@ namespace Elias.Application.Interfaces
     public interface IBlogService
     {
         Task<Blog> FindBlogById(int id);
-        List<BlogDto> GetBlogList();
+        public Tuple<List<BlogDto>, int> GetBlogList(int pageId = 1);
         Task UpdateBlog(Blog blog, IFormFile Image);
         Task CreateBlog(Blog blog, IFormFile Image);
         Task DeleteBlog(Blog blog);

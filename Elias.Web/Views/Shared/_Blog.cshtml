@@ -3,7 +3,10 @@
 @using Elias.Data.DTOs.Blog
 @inject IBlogService _Blog
 @{
-    List<BlogDto> blog = _Blog.GetBlogList();
+    int pageId = 1;
+    Tuple<List<BlogDto>, int> blog = _Blog.GetBlogList();
+    ViewData["rowsCount"] = _Blog.GetBlogList().Item2;
+    ViewData["pageId"] = pageId;
 }
 
 <section id="blog" class="shadow bg-light radius-2 padding-dy ">
@@ -14,7 +17,7 @@
         </div>
     </div>
     <div class="row">
-        @foreach (var item in blog)
+        @foreach (var item in blog.Item1)
         {
             <div class="col-md-12">
                 <div class="mb-4 item">
@@ -45,17 +48,17 @@
                             <a href="#">@item.BlogGroupName</a>
                         </span>
                     </li>
-@*                     <li class="list-inline-item">
-                        <span class=" fas fa-comment mr-1  "></span>
-                        <span>
-                            نظرات
-                            <a href="#">(2)</a>
-                        </span>
-                    </li> *@
+                    @*                     <li class="list-inline-item">
+                <span class=" fas fa-comment mr-1  "></span>
+                <span>
+                نظرات
+                <a href="#">(2)</a>
+                </span>
+                </li> *@
                 </ul>
                 <hr class="mt-3 mb-3">
                 <p>
-                 @Html.Raw(item.BlogShortDescription)
+                    @Html.Raw(item.BlogShortDescription)
                 </p>
                 <div class="outer radius-2 d-inline-block">
                     <a href="/BlogSingle/@item.Id" class="inner radius-2 d-block px-4 py-2 font-size-14 text-secondary-2 font-weight-500">
@@ -68,6 +71,18 @@
             </div>
         }
     </div>
+    <div class="col text-center">
+        <ul class="list-inline blog-nav mb-0">
+            @for (int i = 1; i <= ((int)ViewData["rowsCount"] + 1); i++)
+            {
+                <li class="outer active radius-2 list-inline-item mr-1">
+                    <a class="inner active btn btn-round btn-icon @(((int)ViewData["pageId"] == i)?"active": "")" href="/Blog?pageId=@i">
+                        <span class="btn-icon-inner text-secondary">@i</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
     <div class="row">
         <div class="col-md-12 mt-6 pt-6 mb-6">
             <hr class="divider divider-lg divider-center ">
@@ -75,3 +90,5 @@
         <partial name="_ResumeDownload" />
     </div>
 </section>
+
+

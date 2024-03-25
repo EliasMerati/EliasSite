@@ -1,6 +1,5 @@
 using Elias.Application.Interfaces;
 using Elias.Data.DTOs.Blog;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Blog
@@ -15,7 +14,7 @@ namespace Elias.Admin.Pages.Blog
         }
         #endregion
 
-        public List<BlogDto> Blogs { get; set; }
+        public Tuple< List<BlogDto>,int> Blogs { get; set; }
         public void OnGet()
         {
             Blogs = _blogService.GetBlogList();
