@@ -46,7 +46,7 @@ namespace Elias.Application.Services
 
         public Tuple<List<BlogDto>, int> GetBlogList(int pageId = 1)
         {
-            int skip = (pageId - 1) * 5;
+            int skip = (pageId - 1) * 6;
 
             int rowsCount = _db.Blogs
                      .Include(b => b.Group)
@@ -61,7 +61,7 @@ namespace Elias.Application.Services
                          BlogGroupId = b.Group.Id,
                          BlogGroupName = b.Group.BlogGroupName,
                          BlogDate = b.CreateDate,
-                     }).Count() / 5;
+                     }).Count() / 6;
             var result = _db.Blogs
                      .Include(b => b.Group)
                      .Select(b => new BlogDto()
@@ -75,7 +75,10 @@ namespace Elias.Application.Services
                          BlogGroupId = b.Group.Id,
                          BlogGroupName = b.Group.BlogGroupName,
                          BlogDate = b.CreateDate,
-                     }).AsNoTracking()
+                     })
+                     .Skip(skip)
+                     .Take(6)
+                     .AsNoTracking()
                      .ToList();
 
             return Tuple.Create(result, rowsCount);

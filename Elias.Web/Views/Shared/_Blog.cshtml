@@ -1,10 +1,12 @@
 ﻿@using Elias.Application.Interfaces
 @using Elias.Common
+@using System.Web;
 @using Elias.Data.DTOs.Blog
 @inject IBlogService _Blog
+
 @{
     int pageId = 1;
-    Tuple<List<BlogDto>, int> blog = _Blog.GetBlogList();
+    List<BlogDto> blog = _Blog.GetBlogList(pageId).Item1;
     ViewData["rowsCount"] = _Blog.GetBlogList().Item2;
     ViewData["pageId"] = pageId;
 }
@@ -17,7 +19,7 @@
         </div>
     </div>
     <div class="row">
-        @foreach (var item in blog.Item1)
+        @foreach (var item in blog)
         {
             <div class="col-md-12">
                 <div class="mb-4 item">
@@ -76,7 +78,7 @@
             @for (int i = 1; i <= ((int)ViewData["rowsCount"] + 1); i++)
             {
                 <li class="outer active radius-2 list-inline-item mr-1">
-                    <a class="inner active btn btn-round btn-icon @(((int)ViewData["pageId"] == i)?"active": "")" href="/Blog?pageId=@i">
+                    <a class="inner btn btn-round btn-icon @(((int)ViewData["pageId"] == i)?"active": "")" href="#blog?pageId=@i">
                         <span class="btn-icon-inner text-secondary">@i</span>
                     </a>
                 </li>
