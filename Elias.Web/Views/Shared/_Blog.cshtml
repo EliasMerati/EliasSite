@@ -78,7 +78,7 @@
             @for (int i = 1; i <= ((int)ViewData["rowsCount"] + 1); i++)
             {
                 <li class="outer active radius-2 list-inline-item mr-1">
-                    <a class="inner btn btn-round btn-icon @(((int)ViewData["pageId"] == i)?"active": "")" href="#blog?pageId=@i">
+                    <a class="inner btn btn-round btn-icon @(((int)ViewData["pageId"] == i)?"active": "")" href="?pageId=@i">
                         <span class="btn-icon-inner text-secondary">@i</span>
                     </a>
                 </li>
