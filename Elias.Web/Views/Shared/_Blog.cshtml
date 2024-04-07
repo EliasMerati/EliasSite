@@ -2,6 +2,7 @@
 @using Elias.Common
 @using System.Web;
 @using Elias.Data.DTOs.Blog
+@using Microsoft.AspNetCore.Mvc.Filters;
 @inject IBlogService _Blog
 
 @{
@@ -9,6 +10,7 @@
     List<BlogDto> blog = _Blog.GetBlogList(pageId).Item1;
     ViewData["rowsCount"] = _Blog.GetBlogList().Item2;
     ViewData["pageId"] = pageId;
+    // string CurrentURL = System.Web.HttpContext.Current.Request.Url;
 }
 
 <section id="blog" class="shadow bg-light radius-2 padding-dy ">
