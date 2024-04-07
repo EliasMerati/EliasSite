@@ -19,6 +19,7 @@ namespace Elias.Admin.Configuration
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IBlogGroupService, BlogGroupService>();
             services.AddScoped<IBlogCommentService, BlogCommentService>();
+            services.AddScoped<ICommentService, CommentService>();
             
         }
     }

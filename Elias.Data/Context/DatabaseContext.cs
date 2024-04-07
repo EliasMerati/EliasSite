@@ -1,6 +1,7 @@
 ﻿using Elias.Data.Entities;
 using Elias.Data.Entities.Blog;
 using Elias.Data.Entities.Certificate;
+using Elias.Data.Entities.Comment;
 using Elias.Data.Entities.Education;
 using Elias.Data.Entities.Experience;
 using Elias.Data.Entities.Portfolio;
@@ -47,6 +48,10 @@ namespace Elias.Data.Context
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogGroup> BlogGroups { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
+        #endregion
+
+        #region Comment
+        public DbSet<Comment> Comments { get; set; }
         #endregion
 
 

@@ -1,7 +1,6 @@
 ﻿using Elias.Data.DTOs.Blog;
 using Elias.Data.Entities.Blog;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Elias.Application.Interfaces
 {

@@ -3,15 +3,8 @@ using Elias.Common;
 using Elias.Data.Context;
 using Elias.Data.DTOs.Blog;
 using Elias.Data.Entities.Blog;
-using Elias.Data.Entities.Portfolio;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elias.Application.Services
 {
