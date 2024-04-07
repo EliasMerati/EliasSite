@@ -1,5 +1,6 @@
 ﻿using Elias.Application.Interfaces;
 using Elias.Application.Services;
+using Elias.Common;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Elias.Admin.Configuration
@@ -20,6 +21,7 @@ namespace Elias.Admin.Configuration
             services.AddScoped<IBlogGroupService, BlogGroupService>();
             services.AddScoped<IBlogCommentService, BlogCommentService>();
             services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IViewRenderService, RenderViewToString>();
             
         }
     }
