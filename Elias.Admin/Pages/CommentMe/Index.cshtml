@@ -35,7 +35,8 @@
                                     <td>@item.Company</td>
                                     <td>@item.Text</td>
                                     <td>
-                                        <a asp-page="UpdateEducation" asp-route-Id="@item.Id" class="btn btn-primary btn-sm">پاسخ پیام</a>
+                                        <a asp-page="َAnswerComment" asp-route-Id="@item.Id" class="btn btn-primary btn-sm">پاسخ </a>
+                                        <a asp-page="DeleteComment" asp-route-Id="@item.Id" class="btn btn-danger btn-sm">حذف </a>
                                     </td>
                                 </tr>
                             }

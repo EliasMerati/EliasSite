@@ -7,6 +7,9 @@ namespace Elias.Application.Interfaces
         Task<Comment> FindCommentById(int id);
         public List<Comment> GetCommentList();
         Task CreateComment(Comment comment);
+        Task DeleteComment(Comment comment);
         bool IsCommentExist();
+        void AnswerQuestion(string answer, string Email);
+
     }
 }
