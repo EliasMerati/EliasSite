@@ -134,6 +134,24 @@ namespace Elias.Data.DTOs.UserDto
         [Display(Name = "فعال")]
         public bool IsActive { get; set; } = true;
     }
+
+    public class ProjectSocial
+    {
+        [Display(Name = "گیت هاب")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string GitHub { get; set; }
+
+        [Display(Name = "لینکداین")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string LinkedIn { get; set; }
+
+        [Display(Name = "اسکایپ")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
+        [MaxLength(150)]
+        public string Skype { get; set; }
+    }
     #endregion
 
 

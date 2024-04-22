@@ -294,6 +294,7 @@ namespace Elias.Application.Services
             {
                 GitHub = u.GitHub,
                 LinkedIn = u.LinkedIn,
+                Skype = u.Skype,
             }).SingleAsync();
         }
         public async Task<MainInfoDto> GetMainInfo()

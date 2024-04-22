@@ -23,6 +23,7 @@ namespace Elias.Data.DTOs.UserDto
     {
         public string GitHub { get; set; }
         public string LinkedIn { get; set; }
+        public string Skype { get; set; }
     }
 
     public class MainInfoDto
