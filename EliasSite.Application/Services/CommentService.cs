@@ -29,10 +29,10 @@ namespace Elias.Application.Services
             }
         }
 
-        public async Task CreateComment(Comment comment)
+        public void CreateComment(Comment comment)
         {
             _db.Add(comment);
-            await _db.SaveChangesAsync();
+             _db.SaveChanges();
         }
 
         public async Task DeleteComment(Comment comment)

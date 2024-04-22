@@ -1,24 +1,20 @@
 ﻿using Elias.Application.Interfaces;
-using Elias.Application.Services;
 using Elias.Common;
 using Elias.Data.Entities.Comment;
 using Elias.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics;
 
 namespace Elias.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IPortfolioService _portfolioService;
         private readonly IBlogService _blogService;
         private readonly ICommentService _commentService;
 
-        public HomeController(ILogger<HomeController> logger, IPortfolioService portfolioService, IBlogService blogService, ICommentService commentService)
+        public HomeController( IPortfolioService portfolioService, IBlogService blogService, ICommentService commentService)
         {
-            _logger = logger;
             _portfolioService = portfolioService;
             _blogService = blogService;
             _commentService = commentService;
@@ -36,11 +32,6 @@ namespace Elias.Web.Controllers
             return View("DarkIndex");
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [Route("/ProjectSingle/{Id}")]
         public IActionResult ProjectSingle(int Id)
         {
@@ -55,12 +46,7 @@ namespace Elias.Web.Controllers
             return View("_BlogSingle", Blog);
         }
 
-        [Route("/CreateComment")]
-        public IActionResult CreateComment()
-        { return View("_ContactMeText"); }
-
         [HttpPost]
-        [Route("/CreateComment")]
         public IActionResult CreateComment(Comment comment)
         {
             if (!ModelState.IsValid)
@@ -77,7 +63,7 @@ namespace Elias.Web.Controllers
                 Text = comment.Text,
             };
             _commentService.CreateComment(newcomment);
-            return View();
+            return LocalRedirect("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
