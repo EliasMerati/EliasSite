@@ -4,6 +4,7 @@ using Elias.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Elias.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240427180445_Fix")]
+    partial class Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -464,7 +467,7 @@ namespace Elias.Data.Migrations
                             Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
                             BirthDay = "1362/06/30",
                             City = "نیشابور",
-                            CreateDate = new DateTime(2024, 4, 27, 22, 46, 21, 412, DateTimeKind.Local).AddTicks(5620),
+                            CreateDate = new DateTime(2024, 4, 27, 22, 34, 44, 829, DateTimeKind.Local).AddTicks(7949),
                             Email = "elias.merati@gmail.com",
                             Familly = "مرآتی",
                             GitHub = "https://github.com/EliasMerati",
@@ -477,7 +480,6 @@ namespace Elias.Data.Migrations
                             Password = "20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70",
                             PhoneNumber = "09223610626",
                             ShortDescription = "برنامه نویس دات نت با بیش از 5 سال سابقه ی برنامه نویسی وب و دسکتاپ",
-                            Skills = "C# , Asp .Net MVC , Asp .Net RazorPages , Asp .Net CoreMVC , Blazor",
                             Skype = "Elias Merati",
                             UserImage = "Null",
                             UserName = "EliasAdmin"

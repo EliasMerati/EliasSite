@@ -1,7 +1,9 @@
 using Elias.Admin.Configuration;
 using Elias.Data.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
+using WebMarkupMin.AspNetCore8;
 
 var builder = WebApplication.CreateBuilder(args);
 #region Services
@@ -10,6 +12,28 @@ var services = builder.Services;
 services.AddControllersWithViews();
 services.Configuration();
 services.AddMvc();
+
+#region Minify Html
+services.AddWebMarkupMin(
+options =>
+{
+options.AllowMinificationInDevelopmentEnvironment = true;
+options.AllowCompressionInDevelopmentEnvironment = true;
+})
+.AddHtmlMinification(
+options =>
+{
+    options.MinificationSettings.RemoveRedundantAttributes = true;
+    options.MinificationSettings.RemoveHttpProtocolFromAttributes = true;
+    options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
+
+})
+.AddHttpCompression();
+#endregion
+
+#region Configure Limit File For Mac & Linux
+services.Configure<FormOptions>(opt => opt.MultipartBodyLengthLimit = 52428800);
+#endregion
 
 #region Authentication
 services.AddAuthentication(opt =>

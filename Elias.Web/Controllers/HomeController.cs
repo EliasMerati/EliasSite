@@ -2,6 +2,7 @@
 using Elias.Common;
 using Elias.Data.Entities.Comment;
 using Elias.Web.Models;
+using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -62,6 +63,19 @@ namespace Elias.Web.Controllers
                 Subject = comment.Subject,
                 Text = comment.Text,
             };
+            #region Sanitize Comment
+            var sanitizer = new HtmlSanitizer();
+            var result = sanitizer.Sanitize(newcomment.Text);
+            var result2 = sanitizer.Sanitize(newcomment.Email);
+            var result3 = sanitizer.Sanitize(newcomment.Name);
+            var result4 = sanitizer.Sanitize(newcomment.Subject);
+            var result5 = sanitizer.Sanitize(newcomment.Company);
+            newcomment.Text = result;
+            newcomment.Email = result2;
+            newcomment.Name = result3;
+            newcomment.Subject = result4;
+            newcomment.Text = result5;
+            #endregion
             _commentService.CreateComment(newcomment);
             return LocalRedirect("Index");
         }
