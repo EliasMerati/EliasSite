@@ -1,10 +1,12 @@
 ﻿using Elias.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Elias.Data.Entities
 {
 #nullable disable
     public class User : BaseEntity<int>
     {
+        public int RoleId { get; set; }
         public string Name { get; set; }
         public string Familly { get; set; }
         public string UserName { get; set; }
@@ -26,5 +28,10 @@ namespace Elias.Data.Entities
         public string Skype { get; set; }
         public bool IsActive { get; set; }
 
+
+        #region Navigation Property
+        [ForeignKey(nameof(RoleId))]
+        public ICollection<Role> Roles { get; set; }
+        #endregion
     }
 }

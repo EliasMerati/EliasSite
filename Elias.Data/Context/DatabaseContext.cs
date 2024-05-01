@@ -19,6 +19,7 @@ namespace Elias.Data.Context
 
         #region User
         public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
         #endregion
 
         #region Skill
@@ -58,10 +59,14 @@ namespace Elias.Data.Context
         private void SeedData(ModelBuilder modelBuilder)
         {
             #region Admin
+            modelBuilder.Entity<Role>()
+                .HasData(new { Id = 1, RoleTitle = "Admin" });
+
             modelBuilder.Entity<User>()
                .HasData(new
                {
                    Id = 1,
+                   RoleId = 1,
                    UserName = "EliasAdmin",
                    CreateDate = DateTime.Now,
                    Name = "الیاس",
@@ -83,6 +88,8 @@ namespace Elias.Data.Context
                    Skype = "Elias Merati",
                    IsActive = true,
                });
+
+            
             #endregion
         }
 
