@@ -1,9 +1,5 @@
 ﻿using Elias.Data.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Elias.Data.Entities.Permission;
 
 namespace Elias.Data.Entities
 {
@@ -14,6 +10,7 @@ namespace Elias.Data.Entities
 
         #region Navigation Property
         public ICollection<User> Users { get; set; }
+        public ICollection<RolePermission> RolePermissions { get; set; }
         #endregion
     }
 }

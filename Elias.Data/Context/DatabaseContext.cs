@@ -4,6 +4,7 @@ using Elias.Data.Entities.Certificate;
 using Elias.Data.Entities.Comment;
 using Elias.Data.Entities.Education;
 using Elias.Data.Entities.Experience;
+using Elias.Data.Entities.Permission;
 using Elias.Data.Entities.Portfolio;
 using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
@@ -55,12 +56,16 @@ namespace Elias.Data.Context
         public DbSet<Comment> Comments { get; set; }
         #endregion
 
+        #region Permission
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
 
+        #endregion
         private void SeedData(ModelBuilder modelBuilder)
         {
             #region Admin
             modelBuilder.Entity<Role>()
-                .HasData(new { Id = 1, RoleTitle = "Admin" });
+                .HasData(new { Id = 1, RoleTitle = "Admin" , CreateDate = DateTime.Now });
 
             modelBuilder.Entity<User>()
                .HasData(new
