@@ -1,3 +1,4 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Elias.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Skill
 {
+    [PermissionChecker(11)]
     public class UpdateSkillModel : PageModel
     {
         #region Inject Service

@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Portfolio
 {
+    [PermissionChecker(32)]
     public class DeletePortfolioModel : PageModel
     {
         private readonly IPortfolioService _portfolioService;

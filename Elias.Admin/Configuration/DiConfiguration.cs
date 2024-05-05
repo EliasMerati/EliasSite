@@ -21,6 +21,7 @@ namespace Elias.Admin.Configuration
             services.AddScoped<IBlogCommentService, BlogCommentService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IViewRenderService, RenderViewToString>();
+            services.AddScoped<IPermissionService, PermissionService>();
 
         }
     }

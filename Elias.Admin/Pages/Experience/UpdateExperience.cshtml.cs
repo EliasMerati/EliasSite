@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Experience
 {
+    [PermissionChecker(19)]
     public class UpdateExperienceModel : PageModel
     {
         #region Inject Service

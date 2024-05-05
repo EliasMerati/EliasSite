@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Certificate
 {
+    [PermissionChecker(23)]
     public class UpdateCertificateModel : PageModel
     {
         #region Inject Service

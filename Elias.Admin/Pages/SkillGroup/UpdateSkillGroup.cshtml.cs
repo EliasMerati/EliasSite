@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.SkillGroup
 {
+    [PermissionChecker(8)]
     public class UpdateSkillGroupModel : PageModel
     {
         #region Inject Service

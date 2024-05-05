@@ -1,3 +1,4 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Elias.Data.Entities.Comment;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.CommentMe
 {
+    [PermissionChecker(43)]
     public class _َAnswerCommentModel : PageModel
     {
         #region Inject Service

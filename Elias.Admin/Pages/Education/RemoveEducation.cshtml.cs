@@ -1,3 +1,4 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Elias.Application.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Education
 {
+    [PermissionChecker(16)]
     public class RemoveEducationModel : PageModel
     {
         #region Inject Service

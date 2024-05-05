@@ -1,3 +1,4 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Elias.Application.Services;
 using Elias.Data.Entities.Portfolio;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.BlogGroup
 {
+    [PermissionChecker(34)]
     public class CreateBlogGroupModel : PageModel
     {
         #region Inject Service

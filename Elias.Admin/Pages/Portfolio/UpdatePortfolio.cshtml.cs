@@ -1,3 +1,4 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Portfolio
 {
+    [PermissionChecker(31)]
     public class UpdatePortfolioModel : PageModel
     {
         #region Inject Services

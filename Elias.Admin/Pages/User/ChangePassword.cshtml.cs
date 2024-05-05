@@ -1,10 +1,12 @@
-﻿using Elias.Application.Interfaces;
+﻿using Elias.Application.Attribute;
+using Elias.Application.Interfaces;
 using Elias.Data.DTOs.UserDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.User
 {
+    [PermissionChecker(3)]
     public class ChangePasswordModel : PageModel
     {
         #region Injection

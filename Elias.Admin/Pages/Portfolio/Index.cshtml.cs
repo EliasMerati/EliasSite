@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Elias.Data.DTOs.PortfolioDto;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Portfolio
 {
+    [PermissionChecker(29)]
     public class IndexModel : PageModel
     {
         #region Inject Services

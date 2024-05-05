@@ -1,9 +1,11 @@
+using Elias.Application.Attribute;
 using Elias.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.PortfolioGroup
 {
+    [PermissionChecker(26)]
     public class CreatePortfolioGroupModel : PageModel
     {
         private readonly IPortfolioGroupService _portfolioGroupService;

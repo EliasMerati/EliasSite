@@ -1,4 +1,5 @@
-﻿using Elias.Application.Interfaces;
+﻿using Elias.Application.Attribute;
+using Elias.Application.Interfaces;
 using Elias.Data.DTOs.UserDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages
 {
-    [Authorize]
+    [PermissionChecker(1)]
     public class IndexModel : PageModel
     {
         #region Injection
