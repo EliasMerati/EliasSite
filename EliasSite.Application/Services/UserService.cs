@@ -94,21 +94,12 @@ namespace Elias.Application.Services
         {
             return await _db.Users.AnyAsync();
         }
-        public async Task<LoginResult> Login(LoginDto login)
+        public async Task<User> Login(LoginDto login)
         {
             var email = login.Email.Trim().ToLower();
-            var user = await GetByEmail(email);
-            if (user is null)
-            {
-                return LoginResult.UserNotFound;
-            }
             string hashPass = PasswordHelper.EncodePasswordMd5(login.Password);
-            if (user.Password != hashPass)
-            {
-                return LoginResult.UserNotFound;
-            }
 
-            return LoginResult.Success;
+            return await _db.Users.SingleOrDefaultAsync(u=> u.Email == email && u.Password == hashPass);
         }
         public async Task UpdateUser(User user, IFormFile Image, IFormFile Resumeh)
         {
