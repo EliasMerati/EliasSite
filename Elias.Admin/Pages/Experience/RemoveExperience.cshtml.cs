@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Experience
 {
-    [PermissionChecker(20)]
+    [PermissionChecker(21)]
     public class RemoveExperienceModel : PageModel
     {
         #region Inject Service
@@ -19,9 +19,17 @@ namespace Elias.Admin.Pages.Experience
         public Elias.Data.Entities.Experience.Experience experience { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            experience = await _experienceService.FindExperienceById(Id);
-            await _experienceService.DeleteExperience(experience);
-            return RedirectToPage("Index");
+            try
+            {
+                experience = await _experienceService.FindExperienceById(Id);
+                await _experienceService.DeleteExperience(experience);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

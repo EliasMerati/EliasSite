@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Experience
 {
-    [PermissionChecker(17)]
+    [PermissionChecker(18)]
     public class IndexModel : PageModel
     {
         #region Inject Service

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Education
 {
-    [PermissionChecker(16)]
+    [PermissionChecker(17)]
     public class RemoveEducationModel : PageModel
     {
         #region Inject Service
@@ -20,9 +20,17 @@ namespace Elias.Admin.Pages.Education
         public Elias.Data.Entities.Education.Education education { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            education = await _educationService.FindEducationById(Id);
-            await _educationService.DeleteEducation(education);
-            return RedirectToPage("Index");
+            try
+            {
+                education = await _educationService.FindEducationById(Id);
+                await _educationService.DeleteEducation(education);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

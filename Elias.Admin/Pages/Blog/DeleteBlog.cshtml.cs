@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Blog
 {
-    [PermissionChecker(40)]
+    [PermissionChecker(41)]
     public class DeleteBlogModel : PageModel
     {
         #region Inject Service
@@ -22,13 +22,21 @@ namespace Elias.Admin.Pages.Blog
         public Elias.Data.Entities.Blog.Blog Blog { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            Blog = await _blogService.FindBlogById(Id);
-            if (Blog is null)
+            try
             {
-                return NotFound();
+                Blog = await _blogService.FindBlogById(Id);
+                if (Blog is null)
+                {
+                    return NotFound();
+                }
+                await _blogService.DeleteBlog(Blog);
+                return RedirectToPage("Index");
             }
-            await _blogService.DeleteBlog(Blog);
-            return RedirectToPage("Index");
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+           
         }
     }
 }

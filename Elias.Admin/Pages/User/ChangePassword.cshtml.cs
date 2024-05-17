@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.User
 {
-    [PermissionChecker(3)]
+    [PermissionChecker(4)]
     public class ChangePasswordModel : PageModel
     {
         #region Injection
@@ -25,17 +25,25 @@ namespace Elias.Admin.Pages.User
 
         public async Task<IActionResult> OnPost()
         {
-            var username = User.Identity.Name;
-            if (!ModelState.IsValid)
-                return Page();
-
-            if (await _userService.CompareOldPassword(Change.OldPassword, username) is not true)
+            try
             {
-                ModelState.AddModelError("OldPassword", "کلمه ی عبور فعلی صحیح نمیباشد");
-            }
+                var username = User.Identity.Name;
+                if (!ModelState.IsValid)
+                    return Page();
 
-            _userService.ChangeNewPassword(username, Change.Password);
-            return  RedirectToPage("/LogOut");
+                if (await _userService.CompareOldPassword(Change.OldPassword, username) is not true)
+                {
+                    ModelState.AddModelError("OldPassword", "کلمه ی عبور فعلی صحیح نمیباشد");
+                }
+
+                _userService.ChangeNewPassword(username, Change.Password);
+                return RedirectToPage("/LogOut");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+           
         }
     }
 }

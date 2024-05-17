@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.SkillGroup
 {
-    [PermissionChecker(6)]
+    [PermissionChecker(7)]
     public class IndexModel : PageModel
     {
         #region MyRegion

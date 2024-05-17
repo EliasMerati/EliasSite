@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
+using Elias.Data.Entities;
 
 namespace Elias.Admin.Pages
 {
@@ -23,9 +24,9 @@ namespace Elias.Admin.Pages
 
         [BindProperty]
         public LoginDto login { get; set; }
+
         public IActionResult OnGet()
         {
-            //if (User.Identity.IsAuthenticated) { return RedirectToPage("Index"); }
             return Page();
         }
 
@@ -38,7 +39,7 @@ namespace Elias.Admin.Pages
             }
             #endregion
 
-            var user = await _userService.Login(login);
+             var user =  _userService.Login(login);
             if (user != null)
             {
                 if (user.IsActive)
@@ -58,7 +59,6 @@ namespace Elias.Admin.Pages
                     return RedirectToPage("Index");
                     #endregion
                 }
-
             }
 
             return Page();

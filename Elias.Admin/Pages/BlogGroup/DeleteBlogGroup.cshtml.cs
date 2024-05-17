@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.BlogGroup
 {
-    [PermissionChecker(36)]
+    [PermissionChecker(37)]
     public class DeleteBlogGroupModel : PageModel
     {
         #region Inject Service

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Blog
 {
-    [PermissionChecker(38)]
+    [PermissionChecker(39)]
     public class CreateBlogModel : PageModel
     {
         #region Inject Service
@@ -29,9 +29,17 @@ namespace Elias.Admin.Pages.Blog
 
         public async Task<IActionResult> OnPost(IFormFile Image)
         {
-            Blog.CreateDate = DateTime.Now;
-            await _blogService.CreateBlog(Blog, Image);
-            return RedirectToPage("Index");
+            try
+            {
+                Blog.CreateDate = DateTime.Now;
+                await _blogService.CreateBlog(Blog, Image);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+           
         }
     }
 }

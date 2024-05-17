@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Certificate
 {
-    [PermissionChecker(24)]
+    [PermissionChecker(25)]
     public class RemoveCertificateModel : PageModel
     {
         #region Inject Service
@@ -22,9 +22,17 @@ namespace Elias.Admin.Pages.Certificate
         public Elias.Data.Entities.Certificate.Certificate certificate { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            certificate = await _certificateService.FindCertificateById(Id);
-            await _certificateService.DeleteCertificate(certificate);
-            return RedirectToPage("Index");
+            try
+            {
+                certificate = await _certificateService.FindCertificateById(Id);
+                await _certificateService.DeleteCertificate(certificate);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

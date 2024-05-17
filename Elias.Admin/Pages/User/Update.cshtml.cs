@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.User
 {
-    [PermissionChecker(5)]
+    [PermissionChecker(6)]
     [BindProperties]
     public class UpdateModel : PageModel
     {
@@ -31,9 +31,16 @@ namespace Elias.Admin.Pages.User
 
         public async Task<IActionResult> OnPost(IFormFile Image, IFormFile Resumeh)
         {
-
-            await _userService.UpdateUser(user, Image, Resumeh);
-            return RedirectToPage("/Index");
+            try
+            {
+                await _userService.UpdateUser(user, Image, Resumeh);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.BlogGroup
 {
-    [PermissionChecker(34)]
+    [PermissionChecker(35)]
     public class CreateBlogGroupModel : PageModel
     {
         #region Inject Service
@@ -25,8 +25,16 @@ namespace Elias.Admin.Pages.BlogGroup
 
         public async Task<IActionResult> OnPost()
         {
-            await _blogGroupService.CreateBlogGroup(BlogGroup);
-            return RedirectToPage("Index");
+            try
+            {
+                await _blogGroupService.CreateBlogGroup(BlogGroup);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Elias.Application.Interfaces
         Task<User> FindUserAsync(int Id);
         Task<User> GetByEmail(string email);
         Task<bool> IsExistUser();
-        Task<User> Login(LoginDto login);
+        User Login(LoginDto login);
         void ChangeNewPassword(string username, string password);
         Task<bool> CompareOldPassword(string password, string username);
         Task<AboutMeInfoDto> GetAboutMeInfo();

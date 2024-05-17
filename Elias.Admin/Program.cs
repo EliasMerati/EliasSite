@@ -20,7 +20,10 @@ services.AddAuthentication(opt =>
     o.ExpireTimeSpan = TimeSpan.FromDays(30);
     o.LogoutPath = "/LogOut";
 });
-services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString")),ServiceLifetime.Transient);
+services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString"),builder =>
+{
+    builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+}));
 #endregion
 // Add services to the container.
 

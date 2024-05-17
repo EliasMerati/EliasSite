@@ -8,6 +8,7 @@ using Elias.Data.Entities.Permission;
 using Elias.Data.Entities.Portfolio;
 using Elias.Data.Entities.Skills;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Elias.Data.Context
 {
@@ -65,7 +66,7 @@ namespace Elias.Data.Context
         {
             #region Admin
             modelBuilder.Entity<Role>()
-                .HasData(new { Id = 1, RoleTitle = "Admin" , CreateDate = DateTime.Now });
+                .HasData(new { Id = 1, RoleTitle = "Admin", CreateDate = DateTime.Now });
             #endregion
 
             #region User
@@ -99,7 +100,7 @@ namespace Elias.Data.Context
 
             #region Role Permissions
             modelBuilder.Entity<RolePermission>()
-      .HasData(new { Id = 1, RoleId = 1, PermissionId = 1 , CreateDate = DateTime.Now },
+      .HasData(new { Id = 1, RoleId = 1, PermissionId = 1, CreateDate = DateTime.Now },
                new { Id = 2, RoleId = 1, PermissionId = 2, CreateDate = DateTime.Now },
                new { Id = 3, RoleId = 1, PermissionId = 3, CreateDate = DateTime.Now },
                new { Id = 4, RoleId = 1, PermissionId = 4, CreateDate = DateTime.Now },
@@ -107,7 +108,7 @@ namespace Elias.Data.Context
                new { Id = 6, RoleId = 1, PermissionId = 6, CreateDate = DateTime.Now },
                new { Id = 7, RoleId = 1, PermissionId = 7, CreateDate = DateTime.Now },
                new { Id = 8, RoleId = 1, PermissionId = 8, CreateDate = DateTime.Now },
-               new { Id= 9, RoleId = 1, PermissionId = 9, CreateDate = DateTime.Now },
+               new { Id = 9, RoleId = 1, PermissionId = 9, CreateDate = DateTime.Now },
                new { Id = 10, RoleId = 1, PermissionId = 10, CreateDate = DateTime.Now },
                new { Id = 11, RoleId = 1, PermissionId = 11, CreateDate = DateTime.Now },
                new { Id = 12, RoleId = 1, PermissionId = 12, CreateDate = DateTime.Now },
@@ -148,51 +149,52 @@ namespace Elias.Data.Context
             #region Permissions
             modelBuilder.Entity<Permission>()
                .HasData(new { Id = 1, PermissionTitle = "صفحه ی اصلی ", CreateDate = DateTime.Now },
-                        new { Id = 2, PermissionTitle = "خروج", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 3, PermissionTitle = "تغییر پسورد", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 4, PermissionTitle = "ایجاد کاربر", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 5, PermissionTitle = "ویرایش کاربر", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 6, PermissionTitle = "گروه مهارت", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 7, PermissionTitle = "ایجاد گروه مهارت", ParentId = 6, CreateDate = DateTime.Now },
-                        new { Id = 8, PermissionTitle = "ویرایش گروه مهارت", ParentId = 6, CreateDate = DateTime.Now },
-                        new { Id = 9, PermissionTitle = "مهارت", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 10, PermissionTitle = " ایجاد مهارت", ParentId = 9, CreateDate = DateTime.Now },
-                        new { Id = 11, PermissionTitle = "ویرایش مهارت", ParentId = 9, CreateDate = DateTime.Now },
-                        new { Id = 12, PermissionTitle = "حذف مهارت", ParentId = 9, CreateDate = DateTime.Now },
-                        new { Id = 13, PermissionTitle = "تحصیلات", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 14, PermissionTitle = "ایجاد تحصیلات", ParentId = 13, CreateDate = DateTime.Now },
-                        new { Id = 15, PermissionTitle = "ویرایش تحصیلات", ParentId = 13, CreateDate = DateTime.Now },
-                        new { Id = 16, PermissionTitle = "حذف تحصیلات", ParentId = 13, CreateDate = DateTime.Now },
-                        new { Id = 17, PermissionTitle = "تجربیات", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 18, PermissionTitle = "ایجاد تجربه", ParentId = 17, CreateDate = DateTime.Now },
-                        new { Id = 19, PermissionTitle = "ویرایش تجربه", ParentId = 17, CreateDate = DateTime.Now },
-                        new { Id = 20, PermissionTitle = "حذف تجربه", ParentId = 17, CreateDate = DateTime.Now },
-                        new { Id = 21, PermissionTitle = "مدارک", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 22, PermissionTitle = "ایجاد مدرک", ParentId = 21, CreateDate = DateTime.Now },
-                        new { Id = 23, PermissionTitle = "ویرایش مدرک", ParentId = 21, CreateDate = DateTime.Now },
-                        new { Id = 24, PermissionTitle = "حذف مدرک", ParentId = 21, CreateDate = DateTime.Now },
-                        new { Id = 25, PermissionTitle = "گروه نمونه کارها ", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 26, PermissionTitle = "ایجاد گروه نمونه کار", ParentId = 25, CreateDate = DateTime.Now },
-                        new { Id = 27, PermissionTitle = "ویرایش گروه نمونه کار", ParentId = 25, CreateDate = DateTime.Now },
-                        new { Id = 28, PermissionTitle = "حذف گروه نمونه کار", ParentId = 25, CreateDate = DateTime.Now },
-                        new { Id = 29, PermissionTitle = "نمونه کار", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 30, PermissionTitle = "ایجاد نمونه کار", ParentId = 29, CreateDate = DateTime.Now },
-                        new { Id = 31, PermissionTitle = "ویرایش نمونه کار", ParentId = 29, CreateDate = DateTime.Now },
-                        new { Id = 32, PermissionTitle = "حذف نمونه کار", ParentId = 29, CreateDate = DateTime.Now },
-                        new { Id = 33, PermissionTitle = "گروه بلاگ", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 34, PermissionTitle = "ایجاد گروه بلاگ", ParentId = 33, CreateDate = DateTime.Now },
-                        new { Id = 35, PermissionTitle = "ویرایش گروه بلاگ", ParentId = 33, CreateDate = DateTime.Now },
-                        new { Id = 36, PermissionTitle = "حذف گروه بلاگ", ParentId = 33, CreateDate = DateTime.Now },
-                        new { Id = 37, PermissionTitle = "بلاگ", ParentId = 1, CreateDate = DateTime.Now },
-                        new { Id = 38, PermissionTitle = "ایجاد بلاگ", ParentId = 37, CreateDate = DateTime.Now },
-                        new { Id = 39, PermissionTitle = "ویرایش بلاگ", ParentId = 37, CreateDate = DateTime.Now },
-                        new { Id = 40, PermissionTitle = "حذف بلاگ", ParentId = 37, CreateDate = DateTime.Now },
-                        new { Id = 41, PermissionTitle = "نظرات بلاگ", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 2, PermissionTitle = "کاربران", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 3, PermissionTitle = "خروج", ParentId = 2, CreateDate = DateTime.Now },
+                        new { Id = 4, PermissionTitle = "تغییر پسورد", ParentId = 2, CreateDate = DateTime.Now },
+                        new { Id = 5, PermissionTitle = "ایجاد کاربر", ParentId = 2, CreateDate = DateTime.Now },
+                        new { Id = 6, PermissionTitle = "ویرایش کاربر", ParentId = 2, CreateDate = DateTime.Now },
+                        new { Id = 7, PermissionTitle = "گروه مهارت", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 8, PermissionTitle = "ایجاد گروه مهارت", ParentId = 7, CreateDate = DateTime.Now },
+                        new { Id = 9, PermissionTitle = "ویرایش گروه مهارت", ParentId = 7, CreateDate = DateTime.Now },
+                        new { Id = 10, PermissionTitle = "مهارت", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 11, PermissionTitle = " ایجاد مهارت", ParentId = 10, CreateDate = DateTime.Now },
+                        new { Id = 12, PermissionTitle = "ویرایش مهارت", ParentId = 10, CreateDate = DateTime.Now },
+                        new { Id = 13, PermissionTitle = "حذف مهارت", ParentId = 10, CreateDate = DateTime.Now },
+                        new { Id = 14, PermissionTitle = "تحصیلات", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 15, PermissionTitle = "ایجاد تحصیلات", ParentId = 14, CreateDate = DateTime.Now },
+                        new { Id = 16, PermissionTitle = "ویرایش تحصیلات", ParentId = 14, CreateDate = DateTime.Now },
+                        new { Id = 17, PermissionTitle = "حذف تحصیلات", ParentId = 14, CreateDate = DateTime.Now },
+                        new { Id = 18, PermissionTitle = "تجربیات", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 19, PermissionTitle = "ایجاد تجربه", ParentId = 18, CreateDate = DateTime.Now },
+                        new { Id = 20, PermissionTitle = "ویرایش تجربه", ParentId = 18, CreateDate = DateTime.Now },
+                        new { Id = 21, PermissionTitle = "حذف تجربه", ParentId = 18, CreateDate = DateTime.Now },
+                        new { Id = 22, PermissionTitle = "مدارک", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 23, PermissionTitle = "ایجاد مدرک", ParentId = 22, CreateDate = DateTime.Now },
+                        new { Id = 24, PermissionTitle = "ویرایش مدرک", ParentId = 22, CreateDate = DateTime.Now },
+                        new { Id = 25, PermissionTitle = "حذف مدرک", ParentId = 22, CreateDate = DateTime.Now },
+                        new { Id = 26, PermissionTitle = "گروه نمونه کارها ", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 27, PermissionTitle = "ایجاد گروه نمونه کار", ParentId = 26, CreateDate = DateTime.Now },
+                        new { Id = 28, PermissionTitle = "ویرایش گروه نمونه کار", ParentId = 26, CreateDate = DateTime.Now },
+                        new { Id = 29, PermissionTitle = "حذف گروه نمونه کار", ParentId = 26, CreateDate = DateTime.Now },
+                        new { Id = 30, PermissionTitle = "نمونه کار", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 31, PermissionTitle = "ایجاد نمونه کار", ParentId = 30, CreateDate = DateTime.Now },
+                        new { Id = 32, PermissionTitle = "ویرایش نمونه کار", ParentId = 30, CreateDate = DateTime.Now },
+                        new { Id = 33, PermissionTitle = "حذف نمونه کار", ParentId = 30, CreateDate = DateTime.Now },
+                        new { Id = 34, PermissionTitle = "گروه بلاگ", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 35, PermissionTitle = "ایجاد گروه بلاگ", ParentId = 34, CreateDate = DateTime.Now },
+                        new { Id = 36, PermissionTitle = "ویرایش گروه بلاگ", ParentId = 34, CreateDate = DateTime.Now },
+                        new { Id = 37, PermissionTitle = "حذف گروه بلاگ", ParentId = 34, CreateDate = DateTime.Now },
+                        new { Id = 38, PermissionTitle = "بلاگ", ParentId = 1, CreateDate = DateTime.Now },
+                        new { Id = 39, PermissionTitle = "ایجاد بلاگ", ParentId = 38, CreateDate = DateTime.Now },
+                        new { Id = 40, PermissionTitle = "ویرایش بلاگ", ParentId = 38, CreateDate = DateTime.Now },
+                        new { Id = 41, PermissionTitle = "حذف بلاگ", ParentId = 38, CreateDate = DateTime.Now },
                         new { Id = 42, PermissionTitle = "پیام های من", ParentId = 1, CreateDate = DateTime.Now },
                         new { Id = 43, PermissionTitle = "پاسخ پیام", ParentId = 42, CreateDate = DateTime.Now },
                         new { Id = 44, PermissionTitle = "حذف پیام", ParentId = 42, CreateDate = DateTime.Now });
+
             #endregion
-  
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

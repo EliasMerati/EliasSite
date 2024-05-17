@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Education
 {
-    [PermissionChecker(14)]
+    [PermissionChecker(15)]
     public class CreateEducationModel : PageModel
     {
         #region Inject Service
@@ -23,8 +23,16 @@ namespace Elias.Admin.Pages.Education
 
         public async Task<IActionResult> OnPost()
         {
-            await _educationService.CreateEducation(education);
-            return RedirectToPage("Index");
+            try
+            {
+                await _educationService.CreateEducation(education);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

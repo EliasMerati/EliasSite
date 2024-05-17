@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.PortfolioGroup
 {
-    [PermissionChecker(27)]
+    [PermissionChecker(28)]
     public class UpdatePortfolioGroupModel : PageModel
     {
         private readonly IPortfolioGroupService _portfolioGroupService;
@@ -23,8 +23,16 @@ namespace Elias.Admin.Pages.PortfolioGroup
 
         public async Task<IActionResult> OnPost()
         {
-            await _portfolioGroupService.UpdatePortfolioGroup(Group);
-            return RedirectToPage("Index");
+            try
+            {
+                await _portfolioGroupService.UpdatePortfolioGroup(Group);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

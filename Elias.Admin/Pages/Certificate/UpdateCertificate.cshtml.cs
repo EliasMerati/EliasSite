@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Certificate
 {
-    [PermissionChecker(23)]
+    [PermissionChecker(24)]
     public class UpdateCertificateModel : PageModel
     {
         #region Inject Service
@@ -29,8 +29,16 @@ namespace Elias.Admin.Pages.Certificate
 
         public async Task<IActionResult> OnPost(IFormFile ImgCertificate)
         {
-            await _certificateService.UpdateCertificate(certificate, ImgCertificate);
-            return RedirectToPage("Index");
+            try
+            {
+                await _certificateService.UpdateCertificate(certificate, ImgCertificate);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

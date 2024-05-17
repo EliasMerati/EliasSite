@@ -97,7 +97,7 @@ namespace Elias.Application.Services
                 if (blog.BlogImage is null)
                 {
                     blog.BlogImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/BlogImage/", blog.BlogImage);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/BlogImage/", blog.BlogImage);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
@@ -107,14 +107,14 @@ namespace Elias.Application.Services
                 else
                 {
                     string DeleteDemoPath = "";
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/BlogImage/", blog.BlogImage);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/BlogImage/", blog.BlogImage);
                     if (File.Exists(DeleteDemoPath))
                     {
                         File.Delete(DeleteDemoPath);
                     }
 
                     blog.BlogImage = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory().Remove(30), "Elias.Web/wwwroot/BlogImage/", blog.BlogImage);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/BlogImage/", blog.BlogImage);
                     using (var stream = new FileStream(DeleteDemoPath, FileMode.CreateNew))
                     {
 

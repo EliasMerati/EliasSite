@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Skill
 {
-    [PermissionChecker(11)]
+    [PermissionChecker(12)]
     public class UpdateSkillModel : PageModel
     {
         #region Inject Service
@@ -35,8 +35,16 @@ namespace Elias.Admin.Pages.Skill
 
         public async Task<IActionResult> OnPost()
         {
-            await _skillService.UpdateSkill(Skill);
-            return RedirectToPage("Index");
+            try
+            {
+                await _skillService.UpdateSkill(Skill);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

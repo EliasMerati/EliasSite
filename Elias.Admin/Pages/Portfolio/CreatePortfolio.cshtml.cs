@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Portfolio
 {
-    [PermissionChecker(30)]
+    [PermissionChecker(31)]
     public class CreatePortfolioModel : PageModel
     {
         #region Inject Services
@@ -30,8 +30,16 @@ namespace Elias.Admin.Pages.Portfolio
 
         public async Task<IActionResult> OnPost(IFormFile Image, List<IFormFile> Images)
         {
-            await _portfolioService.CreatePortfolio(portfolio, Image, Images);
-            return RedirectToPage("Index");
+            try
+            {
+                await _portfolioService.CreatePortfolio(portfolio, Image, Images);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

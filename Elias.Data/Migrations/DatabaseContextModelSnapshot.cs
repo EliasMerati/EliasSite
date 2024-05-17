@@ -285,307 +285,307 @@ namespace Elias.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3646),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4839),
                             PermissionTitle = "صفحه ی اصلی "
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3649),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4842),
                             ParentId = 1,
-                            PermissionTitle = "خروج"
+                            PermissionTitle = "کاربران"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3652),
-                            ParentId = 1,
-                            PermissionTitle = "تغییر پسورد"
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4845),
+                            ParentId = 2,
+                            PermissionTitle = "خروج"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3654),
-                            ParentId = 1,
-                            PermissionTitle = "ایجاد کاربر"
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4847),
+                            ParentId = 2,
+                            PermissionTitle = "تغییر پسورد"
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3656),
-                            ParentId = 1,
-                            PermissionTitle = "ویرایش کاربر"
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4849),
+                            ParentId = 2,
+                            PermissionTitle = "ایجاد کاربر"
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3657),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4850),
+                            ParentId = 2,
+                            PermissionTitle = "ویرایش کاربر"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4852),
                             ParentId = 1,
                             PermissionTitle = "گروه مهارت"
                         },
                         new
                         {
-                            Id = 7,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3659),
-                            ParentId = 6,
+                            Id = 8,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4854),
+                            ParentId = 7,
                             PermissionTitle = "ایجاد گروه مهارت"
                         },
                         new
                         {
-                            Id = 8,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3661),
-                            ParentId = 6,
+                            Id = 9,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4856),
+                            ParentId = 7,
                             PermissionTitle = "ویرایش گروه مهارت"
                         },
                         new
                         {
-                            Id = 9,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3663),
+                            Id = 10,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4858),
                             ParentId = 1,
                             PermissionTitle = "مهارت"
                         },
                         new
                         {
-                            Id = 10,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3665),
-                            ParentId = 9,
+                            Id = 11,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4860),
+                            ParentId = 10,
                             PermissionTitle = " ایجاد مهارت"
                         },
                         new
                         {
-                            Id = 11,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3667),
-                            ParentId = 9,
+                            Id = 12,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4862),
+                            ParentId = 10,
                             PermissionTitle = "ویرایش مهارت"
                         },
                         new
                         {
-                            Id = 12,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3669),
-                            ParentId = 9,
+                            Id = 13,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4863),
+                            ParentId = 10,
                             PermissionTitle = "حذف مهارت"
                         },
                         new
                         {
-                            Id = 13,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3671),
+                            Id = 14,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4865),
                             ParentId = 1,
                             PermissionTitle = "تحصیلات"
                         },
                         new
                         {
-                            Id = 14,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3673),
-                            ParentId = 13,
+                            Id = 15,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4867),
+                            ParentId = 14,
                             PermissionTitle = "ایجاد تحصیلات"
                         },
                         new
                         {
-                            Id = 15,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3675),
-                            ParentId = 13,
+                            Id = 16,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4869),
+                            ParentId = 14,
                             PermissionTitle = "ویرایش تحصیلات"
                         },
                         new
                         {
-                            Id = 16,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3677),
-                            ParentId = 13,
+                            Id = 17,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4871),
+                            ParentId = 14,
                             PermissionTitle = "حذف تحصیلات"
                         },
                         new
                         {
-                            Id = 17,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3679),
+                            Id = 18,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4873),
                             ParentId = 1,
                             PermissionTitle = "تجربیات"
                         },
                         new
                         {
-                            Id = 18,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3680),
-                            ParentId = 17,
+                            Id = 19,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4875),
+                            ParentId = 18,
                             PermissionTitle = "ایجاد تجربه"
                         },
                         new
                         {
-                            Id = 19,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3682),
-                            ParentId = 17,
+                            Id = 20,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4877),
+                            ParentId = 18,
                             PermissionTitle = "ویرایش تجربه"
                         },
                         new
                         {
-                            Id = 20,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3684),
-                            ParentId = 17,
+                            Id = 21,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4879),
+                            ParentId = 18,
                             PermissionTitle = "حذف تجربه"
                         },
                         new
                         {
-                            Id = 21,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3686),
+                            Id = 22,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4880),
                             ParentId = 1,
                             PermissionTitle = "مدارک"
                         },
                         new
                         {
-                            Id = 22,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3688),
-                            ParentId = 21,
+                            Id = 23,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4882),
+                            ParentId = 22,
                             PermissionTitle = "ایجاد مدرک"
                         },
                         new
                         {
-                            Id = 23,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3690),
-                            ParentId = 21,
+                            Id = 24,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4884),
+                            ParentId = 22,
                             PermissionTitle = "ویرایش مدرک"
                         },
                         new
                         {
-                            Id = 24,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3692),
-                            ParentId = 21,
+                            Id = 25,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4886),
+                            ParentId = 22,
                             PermissionTitle = "حذف مدرک"
                         },
                         new
                         {
-                            Id = 25,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3694),
+                            Id = 26,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4888),
                             ParentId = 1,
                             PermissionTitle = "گروه نمونه کارها "
                         },
                         new
                         {
-                            Id = 26,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3695),
-                            ParentId = 25,
+                            Id = 27,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4890),
+                            ParentId = 26,
                             PermissionTitle = "ایجاد گروه نمونه کار"
                         },
                         new
                         {
-                            Id = 27,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3697),
-                            ParentId = 25,
+                            Id = 28,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4891),
+                            ParentId = 26,
                             PermissionTitle = "ویرایش گروه نمونه کار"
                         },
                         new
                         {
-                            Id = 28,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3699),
-                            ParentId = 25,
+                            Id = 29,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4893),
+                            ParentId = 26,
                             PermissionTitle = "حذف گروه نمونه کار"
                         },
                         new
                         {
-                            Id = 29,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3701),
+                            Id = 30,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4895),
                             ParentId = 1,
                             PermissionTitle = "نمونه کار"
                         },
                         new
                         {
-                            Id = 30,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3703),
-                            ParentId = 29,
+                            Id = 31,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4897),
+                            ParentId = 30,
                             PermissionTitle = "ایجاد نمونه کار"
                         },
                         new
                         {
-                            Id = 31,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3705),
-                            ParentId = 29,
+                            Id = 32,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4899),
+                            ParentId = 30,
                             PermissionTitle = "ویرایش نمونه کار"
                         },
                         new
                         {
-                            Id = 32,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3707),
-                            ParentId = 29,
+                            Id = 33,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4900),
+                            ParentId = 30,
                             PermissionTitle = "حذف نمونه کار"
                         },
                         new
                         {
-                            Id = 33,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3709),
+                            Id = 34,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4902),
                             ParentId = 1,
                             PermissionTitle = "گروه بلاگ"
                         },
                         new
                         {
-                            Id = 34,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3711),
-                            ParentId = 33,
+                            Id = 35,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4904),
+                            ParentId = 34,
                             PermissionTitle = "ایجاد گروه بلاگ"
                         },
                         new
                         {
-                            Id = 35,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3712),
-                            ParentId = 33,
+                            Id = 36,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4906),
+                            ParentId = 34,
                             PermissionTitle = "ویرایش گروه بلاگ"
                         },
                         new
                         {
-                            Id = 36,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3714),
-                            ParentId = 33,
+                            Id = 37,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4908),
+                            ParentId = 34,
                             PermissionTitle = "حذف گروه بلاگ"
                         },
                         new
                         {
-                            Id = 37,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3716),
+                            Id = 38,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4910),
                             ParentId = 1,
                             PermissionTitle = "بلاگ"
                         },
                         new
                         {
-                            Id = 38,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3718),
-                            ParentId = 37,
+                            Id = 39,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4911),
+                            ParentId = 38,
                             PermissionTitle = "ایجاد بلاگ"
                         },
                         new
                         {
-                            Id = 39,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3720),
-                            ParentId = 37,
+                            Id = 40,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4913),
+                            ParentId = 38,
                             PermissionTitle = "ویرایش بلاگ"
                         },
                         new
                         {
-                            Id = 40,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3722),
-                            ParentId = 37,
+                            Id = 41,
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4915),
+                            ParentId = 38,
                             PermissionTitle = "حذف بلاگ"
                         },
                         new
                         {
-                            Id = 41,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3724),
-                            ParentId = 1,
-                            PermissionTitle = "نظرات بلاگ"
-                        },
-                        new
-                        {
                             Id = 42,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3726),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4917),
                             ParentId = 1,
                             PermissionTitle = "پیام های من"
                         },
                         new
                         {
                             Id = 43,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3728),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4919),
                             ParentId = 42,
                             PermissionTitle = "پاسخ پیام"
                         },
                         new
                         {
                             Id = 44,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3730),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4921),
                             ParentId = 42,
                             PermissionTitle = "حذف پیام"
                         });
@@ -620,308 +620,308 @@ namespace Elias.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3424),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4620),
                             PermissionId = 1,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3427),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4623),
                             PermissionId = 2,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3429),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4625),
                             PermissionId = 3,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3432),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4627),
                             PermissionId = 4,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3434),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4628),
                             PermissionId = 5,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3436),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4630),
                             PermissionId = 6,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3438),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4633),
                             PermissionId = 7,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3439),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4635),
                             PermissionId = 8,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3441),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4637),
                             PermissionId = 9,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3443),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4639),
                             PermissionId = 10,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 11,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3445),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4641),
                             PermissionId = 11,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 12,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3447),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4643),
                             PermissionId = 12,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 13,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3449),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4644),
                             PermissionId = 13,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 14,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3451),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4646),
                             PermissionId = 14,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 15,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3453),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4648),
                             PermissionId = 15,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 16,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3455),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4707),
                             PermissionId = 16,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 17,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3457),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4709),
                             PermissionId = 17,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 18,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3458),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4711),
                             PermissionId = 18,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 19,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3460),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4713),
                             PermissionId = 19,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 20,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3462),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4716),
                             PermissionId = 20,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 21,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3464),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4718),
                             PermissionId = 21,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 22,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3466),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4719),
                             PermissionId = 22,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 23,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3468),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4722),
                             PermissionId = 23,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 24,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3470),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4724),
                             PermissionId = 24,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 25,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3535),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4727),
                             PermissionId = 25,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 26,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3538),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4728),
                             PermissionId = 26,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 27,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3540),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4730),
                             PermissionId = 27,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 28,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3542),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4732),
                             PermissionId = 28,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 29,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3545),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4734),
                             PermissionId = 29,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 30,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3546),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4736),
                             PermissionId = 30,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 31,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3548),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4738),
                             PermissionId = 31,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 32,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3550),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4740),
                             PermissionId = 32,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 33,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3552),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4743),
                             PermissionId = 33,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 34,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3554),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4745),
                             PermissionId = 34,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 35,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3556),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4747),
                             PermissionId = 35,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 36,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3558),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4749),
                             PermissionId = 36,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 37,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3560),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4751),
                             PermissionId = 37,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 38,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3562),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4752),
                             PermissionId = 38,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 39,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3564),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4754),
                             PermissionId = 39,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 40,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3565),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4756),
                             PermissionId = 40,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 41,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3567),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4758),
                             PermissionId = 41,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 42,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3569),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4759),
                             PermissionId = 42,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 43,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3571),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4761),
                             PermissionId = 43,
                             RoleId = 1
                         },
                         new
                         {
                             Id = 44,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3573),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4763),
                             PermissionId = 44,
                             RoleId = 1
                         });
@@ -1051,7 +1051,7 @@ namespace Elias.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3299),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4482),
                             RoleTitle = "Admin"
                         });
                 });
@@ -1142,7 +1142,6 @@ namespace Elias.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsActive")
-                        .HasMaxLength(20)
                         .HasColumnType("bit");
 
                     b.Property<string>("LinkedIn")
@@ -1208,7 +1207,7 @@ namespace Elias.Data.Migrations
                             Address = "خیابان امیر کبیر - امیر کبیر 9/5 - پلاک 141",
                             BirthDay = "1362/06/30",
                             City = "نیشابور",
-                            CreateDate = new DateTime(2024, 5, 6, 22, 45, 23, 260, DateTimeKind.Local).AddTicks(3391),
+                            CreateDate = new DateTime(2024, 5, 13, 22, 1, 46, 264, DateTimeKind.Local).AddTicks(4585),
                             Email = "elias.merati@gmail.com",
                             Familly = "مرآتی",
                             GitHub = "https://github.com/EliasMerati",

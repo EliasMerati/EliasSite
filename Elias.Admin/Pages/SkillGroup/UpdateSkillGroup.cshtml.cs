@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.SkillGroup
 {
-    [PermissionChecker(8)]
+    [PermissionChecker(9)]
     public class UpdateSkillGroupModel : PageModel
     {
         #region Inject Service
@@ -28,8 +28,16 @@ namespace Elias.Admin.Pages.SkillGroup
 
         public async Task<IActionResult> OnPost()
         {
-            await _skillGroupService.UpdateSkillGroup(skillGroup);
-            return RedirectToPage("Index");
+            try
+            {
+                await _skillGroupService.UpdateSkillGroup(skillGroup);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

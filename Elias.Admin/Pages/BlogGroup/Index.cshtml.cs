@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.BlogGroup
 {
-    [PermissionChecker(33)]
+    [PermissionChecker(34)]
     public class IndexModel : PageModel
     {
         #region Inject Service

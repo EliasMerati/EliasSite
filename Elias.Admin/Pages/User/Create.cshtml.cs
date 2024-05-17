@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.User
 {
-    [PermissionChecker(4)]
+    [PermissionChecker(5)]
 #nullable disable
     public class CreateModel : PageModel
     {
@@ -26,8 +26,16 @@ namespace Elias.Admin.Pages.User
 
         public async Task<IActionResult> OnPost(IFormFile Image, IFormFile Resumeh)
         {
-            await _userService.CreateUserAsync(user, Image, Resumeh);
-            return RedirectToPage("/Index");
+            try
+            {
+                await _userService.CreateUserAsync(user, Image, Resumeh);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

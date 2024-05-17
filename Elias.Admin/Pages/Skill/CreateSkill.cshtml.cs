@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Elias.Admin.Pages.Skill
 {
-    [PermissionChecker(10)]
+    [PermissionChecker(11)]
     [BindProperties]
     public class CreateSkillModel : PageModel
     {
@@ -31,8 +31,16 @@ namespace Elias.Admin.Pages.Skill
 
         public async Task<IActionResult> OnPost()
         {
-            await _skillService.CreateSkill(Skill);
-            return RedirectToPage("Index");
+            try
+            {
+                await _skillService.CreateSkill(Skill);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

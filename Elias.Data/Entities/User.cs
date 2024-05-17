@@ -82,7 +82,6 @@ namespace Elias.Data.Entities
         public string Skype { get; set; }
 
         [Display(Name = "فعال / غیر فعال")]
-        [MaxLength(20)]
         public bool IsActive { get; set; }
 
 

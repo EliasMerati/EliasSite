@@ -26,8 +26,16 @@ namespace Elias.Admin.Pages.CommentMe
 
         public async Task<IActionResult> OnPost(string answere)
         {
-            _commentService.AnswerQuestion(answere, comment.Email);
-            return RedirectToPage("Index");
+            try
+            {
+                _commentService.AnswerQuestion(answere, comment.Email);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

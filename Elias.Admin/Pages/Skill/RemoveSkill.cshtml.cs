@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.Skill
 {
-    [PermissionChecker(12)]
+    [PermissionChecker(13)]
     public class RemoveSkillModel : PageModel
     {
         #region Inject Service
@@ -19,9 +19,17 @@ namespace Elias.Admin.Pages.Skill
         public Elias.Data.Entities.Skills.Skill Skill { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            Skill = await _skillService.FindSkillById(Id);
-            await _skillService.DeleteSkill(Skill);
-            return RedirectToPage("Index");
+            try
+            {
+                Skill = await _skillService.FindSkillById(Id);
+                await _skillService.DeleteSkill(Skill);
+                return RedirectToPage("Index");
+            }
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }

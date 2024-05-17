@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Elias.Admin.Pages.PortfolioGroup
 {
-    [PermissionChecker(28)]
+    [PermissionChecker(29)]
     public class RemovePortfolioGroupModel : PageModel
     {
         private readonly IPortfolioGroupService _portfolioGroupService;
@@ -18,13 +18,21 @@ namespace Elias.Admin.Pages.PortfolioGroup
         public Elias.Data.Entities.Portfolio.PortfolioGroup Group { get; set; }
         public async Task<IActionResult> OnGet(int Id)
         {
-            Group = await _portfolioGroupService.FindPortfolioGroupById(Id);
-            if (Group is null)
+            try
             {
-                return NotFound();
+                Group = await _portfolioGroupService.FindPortfolioGroupById(Id);
+                if (Group is null)
+                {
+                    return NotFound();
+                }
+                await _portfolioGroupService.DeletePortfolioGroup(Group);
+                return RedirectToPage("Index");
             }
-            await _portfolioGroupService.DeletePortfolioGroup(Group);
-            return RedirectToPage("Index");
+            catch (Exception b)
+            {
+                return Content(b.Message);
+            }
+            
         }
     }
 }
