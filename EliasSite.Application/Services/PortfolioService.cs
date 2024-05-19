@@ -76,7 +76,7 @@ namespace Elias.Application.Services
                 if (portfolio.MainPicure is null)
                 {
                     portfolio.MainPicure = GenerateCode.GenerateUniqueCode() + Path.GetExtension(Image.FileName);
-                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/PortfolioImage/", portfolio.MainPicure);
+                    string Imagepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PortfolioImage/", portfolio.MainPicure);
                     using (var stream = new FileStream(Imagepath, FileMode.CreateNew))
                     {
 
@@ -86,7 +86,7 @@ namespace Elias.Application.Services
                 else
                 {
                     string DeleteDemoPath = "";
-                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/PortfolioImage/", portfolio.MainPicure);
+                    DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PortfolioImage/", portfolio.MainPicure);
                     if (File.Exists(DeleteDemoPath))
                     {
                         File.Delete(DeleteDemoPath);
@@ -105,7 +105,7 @@ namespace Elias.Application.Services
         private async Task DeletePortfolioPic(Portfolio portfolio)
         {
             string DeleteDemoPath = "";
-            DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory()/*.Remove(30)*/, "wwwroot/PortfolioImage/", portfolio.MainPicure);
+            DeleteDemoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PortfolioImage/", portfolio.MainPicure);
             if (File.Exists(DeleteDemoPath))
             {
                 File.Delete(DeleteDemoPath);
