@@ -12,13 +12,25 @@ var services = builder.Services;
 services.AddControllersWithViews();
 services.Configuration();
 services.AddMvc();
+services.AddRazorPages();
+
+#region DB Context
+services.AddDbContext<DatabaseContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString")
+        , builder => builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
+
+    opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+});
+#endregion
 
 #region Minify Html
 services.AddWebMarkupMin(
 options =>
 {
-options.AllowMinificationInDevelopmentEnvironment = true;
-options.AllowCompressionInDevelopmentEnvironment = true;
+    options.AllowMinificationInDevelopmentEnvironment = true;
+    options.AllowCompressionInDevelopmentEnvironment = true;
 })
 .AddHtmlMinification(
 options =>
@@ -38,16 +50,18 @@ services.Configure<FormOptions>(opt => opt.MultipartBodyLengthLimit = 52428800);
 #region Authentication
 services.AddAuthentication(opt =>
 {
-    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    opt.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(o =>
+{
+    o.LoginPath = "/Login";
+    o.ExpireTimeSpan = TimeSpan.FromDays(30);
+    o.LogoutPath = "/LogOut";
 });
 #endregion
 
-services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EliasConnectionString"), builder =>
-{
-    builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-}));
 #endregion
 
 #region Middlewares
@@ -67,10 +81,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
 #endregion
-

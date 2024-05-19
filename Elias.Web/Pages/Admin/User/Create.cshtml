@@ -1,0 +1,167 @@
+﻿@page
+@model Elias.Admin.Pages.User.CreateModel
+@{
+    ViewData["Title"] = "ثبت ادمین جدید";
+}
+
+
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">ثبت ادمین جدید</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-page="Create" method="post" enctype="multipart/form-data">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            اطلاعات کاربر
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>نام</label>
+                                <input type="text" asp-for="user.Name" class="form-control">
+                                <span asp-validation-for="user.Name"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>نام خانوادگی</label>
+                                <input type="text" asp-for="user.Familly" class="form-control">
+                                <span asp-validation-for="user.Familly"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>نام کاربری</label>
+                                <input type="text" asp-for="user.UserName" class="form-control">
+                                <span asp-validation-for="user.UserName"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>کلمه ی عبور</label>
+                                <input type="text" asp-for="user.Password" class="form-control">
+                                <span asp-validation-for="user.Password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>ایمیل</label>
+                                <input type="text" asp-for="user.Email" class="form-control">
+                                <span asp-validation-for="user.Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>تلفن</label>
+                                <input type="text" asp-for="user.PhoneNumber" class="form-control">
+                                <span asp-validation-for="user.PhoneNumber"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>استان</label>
+                                <input type="text" asp-for="user.Ostan" class="form-control">
+                                <span asp-validation-for="user.Ostan"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>شهر</label>
+                                <input type="text" asp-for="user.City" class="form-control">
+                                <span asp-validation-for="user.City"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>مهارت اصلی</label>
+                                <input type="text" asp-for="user.MainSkill" class="form-control">
+                                <span asp-validation-for="user.MainSkill"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>گیت هاب</label>
+                                <input type="text" asp-for="user.GitHub" class="form-control">
+                                <span asp-validation-for="user.GitHub"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>لینکدین</label>
+                                <input type="text" asp-for="user.LinkedIn" class="form-control">
+                                <span asp-validation-for="user.LinkedIn"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>اسکایپ</label>
+                                <input type="text" asp-for="user.Skype" class="form-control">
+                                <span asp-validation-for="user.Skype"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>رزومه</label>
+                                <input type="file" name="Resumeh" asp-for="user.Resumeh" class="form-control">
+                                <span asp-validation-for="user.Resumeh"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>عکس</label>
+                                <input type="file" name="Image" id="UserImage" asp-for="user.UserImage" class="form-control">
+                                <span asp-validation-for="user.UserImage"></span>
+                            </div>
+                            <img id="ImgUser" class="thumbnail" src="/ProfilePic/" />
+                            <div class="form-group">
+                                <label>مهارت ها</label>
+                                <textarea type="text" asp-for="user.Skills" rows="4" class="form-control"></textarea>
+                                <span asp-validation-for="user.Skills"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>آدرس</label>
+                                <textarea type="text" asp-for="user.Address" rows="4" class="form-control"></textarea>
+                                <span asp-validation-for="user.Address"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>توضیح مختصر</label>
+                                <textarea type="text" asp-for="user.ShortDescription" rows="4" class="form-control"></textarea>
+                                <span asp-validation-for="user.ShortDescription"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>توضیحات</label>
+                                <textarea type="text" asp-for="user.MainDescription" rows="4" class="form-control"></textarea>
+                                <span asp-validation-for="user.MainDescription"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">ثبت ادمین جدید</button>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.col-lg-4 -->
+
+        </div>
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+@section Scripts {
+
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('user_Skills', {
+            customConfig: '/js/Config.js'
+        });
+
+        CKEDITOR.replace('user_Address', {
+            customConfig: '/js/Config.js'
+        });
+
+        CKEDITOR.replace('user_ShortDescription', {
+            customConfig: '/js/Config.js'
+        });
+
+        CKEDITOR.replace('user_MainDescription', {
+            customConfig: '/js/Config.js'
+        });
+    </script>
+
+}
+
+
+
+
+
+
+

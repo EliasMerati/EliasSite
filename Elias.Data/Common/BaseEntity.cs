@@ -6,7 +6,7 @@ namespace Elias.Data.Common
     public class BaseEntity<T>
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public T Id { get; set; }
         public DateTime CreateDate { get; set; } = DateTime.Now;
     }

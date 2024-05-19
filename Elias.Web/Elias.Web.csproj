@@ -20,8 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Elias.Admin\Elias.Admin.csproj" />
     <ProjectReference Include="..\Elias.Data\Elias.Data.csproj" />
+    <ProjectReference Include="..\EliasSite.Application\Elias.Application.csproj" />
+    <ProjectReference Include="..\EliasSite.Common\Elias.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
