@@ -153,7 +153,9 @@ namespace Elias.Application.Services
                     Id = p.Id,
                     GroupName = p.PortfolioGroup.GroupName,
                     MainPicure = p.MainPicure,
-                }).AsNoTracking().ToList();
+                }).OrderByDescending(p => p.Id)
+                .AsNoTracking()
+                .ToList();
         }
 
         public Portfolio GetEntirePortfoWithImagesAndGroupsById(int id)
