@@ -28,6 +28,6 @@ namespace Elias.Data.DTOs.SkillDto
 
         [Display(Name = "درصد مهارت")]
         [MaxLength(10)]
-        public int SkillValue { get; set; }
+        public string SkillValue { get; set; }
     }
 }

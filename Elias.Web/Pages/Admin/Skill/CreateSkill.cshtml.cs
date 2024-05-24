@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Elias.Admin.Pages.Skill
 {
     [PermissionChecker(11)]
-    [BindProperties]
+    
     public class CreateSkillModel : PageModel
     {
         #region Inject Service
@@ -21,7 +21,7 @@ namespace Elias.Admin.Pages.Skill
         }
         #endregion
 
-        
+        [BindProperty]
         public Elias.Data.Entities.Skills.Skill Skill { get; set; }
         public void OnGet()
         {

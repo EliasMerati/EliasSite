@@ -53,7 +53,8 @@ namespace Elias.Application.Services
                     PortfolioDate = p.PortfolioDate,
                     PortfolioName = p.PortfolioName,
                     PortfolioFamily = p.PortfolioFamily,
-                }).AsNoTracking()
+                }).OrderByDescending(p => p.Id)
+                .AsNoTracking()
                 .ToList();
         }
 

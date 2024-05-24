@@ -70,6 +70,7 @@ namespace Elias.Application.Services
                          BlogGroupName = b.Group.BlogGroupName,
                          BlogDate = b.CreateDate,
                      })
+                     .OrderByDescending(b => b.Id)
                      .Skip(skip)
                      .Take(6)
                      .AsNoTracking()

@@ -1,10 +1,5 @@
 ﻿using Elias.Data.Common;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Elias.Data.Entities.Skills
 {
@@ -18,7 +13,7 @@ namespace Elias.Data.Entities.Skills
 
         [Display(Name = "درصد مهارت")]
         [MaxLength(50)]
-        public int SkillValue { get; set; }
+        public string SkillValue { get; set; }
 
         #region Navigation Property
         public SkillGroup SkillGroup { get; set; }
