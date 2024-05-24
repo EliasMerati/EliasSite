@@ -148,12 +148,13 @@ namespace Elias.Application.Services
         {
             return _db.Portfolios
                 .Include(p => p.PortfolioGroup)
+                .OrderByDescending(p => p.Id)
                 .Select(p => new GetPortfolioForShowByGroupIdDto()
                 {
                     Id = p.Id,
                     GroupName = p.PortfolioGroup.GroupName,
                     MainPicure = p.MainPicure,
-                }).OrderByDescending(p => p.Id)
+                })
                 .AsNoTracking()
                 .ToList();
         }
