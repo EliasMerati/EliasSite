@@ -48,7 +48,10 @@ namespace Elias.Application.Services
                     Description = x.Description,
                     ExperienceDate = x.ExperienceDate,
                     ExperienceSubject = x.ExperienceSubject,
-                }).AsNoTracking().ToList();
+                })
+                .OrderByDescending(e => e.Id)
+                .AsNoTracking()
+                .ToList();
         }
 
         public bool IsEexperienceExist()
