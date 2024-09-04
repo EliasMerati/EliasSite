@@ -14,7 +14,6 @@ namespace Elias.Data.Entities.Experience
         public string ExperienceDate { get; set; }
 
         [Display(Name = "توضیحات")]
-        [MaxLength(150)]
         public string Description { get; set; }
     }
 }
