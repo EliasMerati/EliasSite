@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label>توضیحات</label>
-                                <input type="text" asp-for="experience.Description" class="form-control">
+                                <textarea type="text" asp-for="experience.Description" rows="10" class="form-control"></textarea>
                                 <span asp-validation-for="experience.Description"></span>
                             </div>
                             <button type="submit" class="btn btn-success">ثبت تجربیات جدید</button>
@@ -53,3 +53,15 @@
     <!-- /#page-wrapper -->
 
 </div>
+
+@section Scripts {
+
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('experience_Description', {
+            customConfig: '/js/Config.js'
+        });
+    </script>
+
+}

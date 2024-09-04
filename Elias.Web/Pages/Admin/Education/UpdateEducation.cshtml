@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label>توضیحات</label>
-                                <input type="text" asp-for="education.Description" class="form-control">
+                                <textarea type="text" asp-for="education.Description" rows="10" class="form-control"></textarea>
                                 <span asp-validation-for="education.Description"></span>
                             </div>
                             <button type="submit" class="btn btn-warning">ویرایش تحصیلات </button>
@@ -54,3 +54,15 @@
     <!-- /#page-wrapper -->
 
 </div>
+
+@section Scripts {
+
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('education_Description', {
+            customConfig: '/js/Config.js'
+        });
+    </script>
+
+}
